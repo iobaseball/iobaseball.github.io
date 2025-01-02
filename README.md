@@ -1,1 +1,2 @@
-# iobaseball.github.io
+# iobaseball
+A deck-building roguelike about baseball
