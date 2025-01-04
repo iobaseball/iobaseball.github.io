@@ -39,7 +39,7 @@
         };
         if(window.mobileAndTabletCheck()){
             document.getElementById("soon-link").href = "#";
-            document.getElementById("soon-link").innerText = "<div>📵 Mobile support coming soon 📵</div><div>Available for desktop/laptop</div>";
+            document.getElementById("soon-link").innerHTML = "<div>📵 Mobile support coming soon 📵</div><div>Available for desktop/laptop</div>";
         }else{
             document.getElementById("soon-link").classList.add("bouncy","btn","btn-xl","btn-success")
         }
