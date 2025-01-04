@@ -201,14 +201,36 @@ body {
     min-height: 300px;
 }
 
+.footer-icon-24{
+    max-width: 24px;
+    margin-right:6px;
+}
+.footer-icon-20{
+    max-width: 20px;
+}
+.footer-icon-16{
+    max-width: 16px;
+}
+.footer-icon-14{
+    max-width: 14px;
+}
+.footer-icon-12{
+    max-width: 12px;
+}
+.footer-links{
+    display:inline-block;
+}
+
 .grid-columns-7 {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 0.5rem; /* Optional: Add spacing between grid items */
 }
 
-input[type=range]{
-    -webkit-appearance: none;
+input[type=range] {
+    -webkit-appearance: none; /* For WebKit browsers */
+    -moz-appearance: none; /* For Firefox */
+    appearance: none; /* Standard */
 }
 
 input[type=range]::-webkit-slider-runnable-track {
