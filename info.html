@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="pageport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ioBaseball</title>
+    <link rel="icon" href="images/favicon.ico?" type="image/x-icon">
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,900&family=Germania+One&family=Graduate&family=Josefin+Sans:wght@700&family=Kelly+Slab&family=Noto+Color+Emoji&family=Roboto+Condensed&family=Rye&display=swap" rel="stylesheet">
+     -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css" />
+
+
+</head>
+
+<body class="">
+    <ul class="nav nav-fill sticky-top bg-dark width-100">
+        <li class="nav-item">
+            <a class="nav-link btn btn-dark" href="#faq">FAQ</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-dark" href="#credits">Credits</a>
+        </li>
+        <!-- <li class="nav-item" role="presentation">
+          <a class="nav-link" href="#">Link</a>
+        </li> -->
+
+    </ul>
+    <div id="root" class="container align-items-center ">
+
+
+
+        <div class="display-6 py-5" id="faq">Frequently Asked</div>
+
+        <div class="accordion" id="questionsAndAnswers">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1"
+                        aria-expanded="true" aria-controls="collapse1">
+                        How do you play this game?
+                    </button>
+                </h2>
+                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1"
+                    data-bs-parent="#questionsAndAnswers">
+                    <div class="accordion-body">
+                        <p>GAIN VICTORY POINTS TO LEVEL UP: Your goal is to gain enough Victory Points to level up.
+                            Victory Points are gained by earning Red Magic, Green Magic, and Blue Magic. At the
+                            beginning of the game, you have 1 <span class="noto">🔥</span> (Red Magic) x 13 <span
+                                class="noto">🌵</span> (Green Magic) x 12 <span class="noto">💧</span> (Blue Magic) =
+                            156 <span class="noto">👑</span> (Victory Points). In other words, red multiplied by green
+                            multiplied by blue equals victory points. Make sure that you buy a card that will earn <span
+                                class="noto">🔥</span> (Red Magic), buy another card to earn <span
+                                class="noto">🌵</span> (Green Magic), and buy one or more cards to earn <span
+                                class="noto">💧</span> (Blue Magic).</p>
+                        <p>BUY CARDS AND UPGRADES FROM TRADING CARD SHOP TO EARN MAGIC: Each in-game day begins at the
+                            Trading Card Shop. Buy cards and upgrades that will potentially earn magic. There are 3
+                            basic types of trading card and lots of joker cards. The 3 basic types of trading cards are
+                            Slugger Cards, Fav Team Cards, and Pitcher Cards. Each day there are a few teams that are
+                            not scheduled to play, but the Trading Card Shop will ONLY sell cards for teams and players
+                            that are playing games "today." You can also sell one of your cards at any time by clicking
+                            on the User Profile icon in the top-right and clicking the SELL ME button below the card.
+                        </p>
+                        <p>PLAY BALL: When you're done buying cards, press the yellow CONTINUE button. Baseball teams
+                            will play baseball. With any luck, the players and teams that you invested in (when you
+                            bought their cards) will get hits/score runs/throw strikeouts and you will earn <span
+                                class="noto">🔥</span> (Red Magic), <span class="noto">🌵</span> (Green Magic), and
+                            <span class="noto">💧</span> (Blue Magic). You can also sell one of your cards at any time
+                            by clicking on the User Profile icon in the top-right and clicking the SELL ME button below
+                            the card. Once all of today's games have finished, press the yellow CONTINUE button. Next is
+                            a news update and once it's finished you will CONTINUE to the final phase of the day: the
+                            Performance Review.</p>
+                        <p>PERFORMANCE REVIEW: If you scored the VP Goal or higher, you have leveled up <span
+                                class="noto">🚀</span> and can now unlock a new type of Trading Card. After leveling up,
+                            your VP Goal <span class="noto">👑</span> will be higher tomorrow. If you did not reach the
+                            VP Goal, you lose a life <span class="noto">🩸</span> and can now unlock a new type of
+                            Upgrade. Click one of the three options and then click CONTINUE to start the next day.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                        How do you get magic?
+                    </button>
+                </h2>
+                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+                    data-bs-parent="#questionsAndAnswers">
+                    <div class="accordion-body">
+                        <p>SLUGGER CARDS: Earn +10 <span class="noto">💧</span> (Blue Magic) each time this player gets
+                            a hit. A hit could be either a single, double, triple, or a home run. Foul balls, ground
+                            outs, and fly outs do NOT count as hits.</p>
+                        <p>FAV TEAM CARDS: Earn +8 <span class="noto">🌵</span> (Green Magic) each time this team scores
+                            a run. A run occurs when a baseball player makes it around all the bases and touches home. A
+                            home run counts as 1 run. If there are also 1 or more baserunners when a home run is hit,
+                            then multiple runs are instantly scored (for example, a TWO-RUN HOME RUN, a THREE-RUN HOME
+                            RUN, or a GRAND SLAM HOME RUN which is 4 runs).</p>
+                        <p>PITCHER CARDS: Earn +3 <span class="noto">🔥</span> (Red Magic) each time this pitcher throws
+                            a strikeout. A strikeout is when a pitcher throws any combination of three swinging or
+                            looking strikes to a hitter. Foul balls also count as strikes, but a batter cannot earn
+                            their third strike by hitting a foul ball.</p>
+                        <p>JOKER CARDS AND UPGRADES: You will eventually unlock joker cards and upgrades that will also
+                            award you magic.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                        Are the Forbidden Upgrades actually forbidden?
+                    </button>
+                </h2>
+                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
+                    data-bs-parent="#questionsAndAnswers">
+                    <div class="accordion-body">
+                        <p>No, they are not actually forbidden. It just says that for spooky fun. Imagine that there is
+                            a dark, mysterious "back room" in the trading card shop and there is a sign that says "No
+                            Cops Allowed." That's the vibe. The Occult Hand upgrade will be really useful so that you
+                            can hold more cards.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading4">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                        Where are the playoffs?
+                    </button>
+                </h2>
+                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
+                    data-bs-parent="#questionsAndAnswers">
+                    <div class="accordion-body">
+                        <p>The ioLB Playoffs are a monthly event held on <a>the ioBaseball Discord</a>. The playoffs are
+                            separate from the single-player roguelike game.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat similar structure for each question -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading93">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse93" aria-expanded="false" aria-controls="collapse93">
+                        What is the answer to life, the universe, and everything?
+                    </button>
+                </h2>
+                <div id="collapse93" class="accordion-collapse collapse" aria-labelledby="heading93"
+                    data-bs-parent="#questionsAndAnswers">
+                    <div class="accordion-body">
+                        <p>42</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading94">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse94" aria-expanded="false" aria-controls="collapse94">
+                        Who's on first?
+                    </button>
+                </h2>
+                <div id="collapse94" class="accordion-collapse collapse" aria-labelledby="heading94"
+                    data-bs-parent="#questionsAndAnswers">
+                    <div class="accordion-body">
+                        <p>The first baseman is named “Who.” Confusion is stemmed by the utterance “Who's on first”
+                            which is ambiguous between the question being posed (which person is the first baseman?) and
+                            the answer to the question (the name of the first baseman is 'Who').</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading95">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse95" aria-expanded="false" aria-controls="collapse95">
+                        If a tree falls in the forest and no one is around to hear it does it make a sound?
+                    </button>
+                </h2>
+                <div id="collapse95" class="accordion-collapse collapse" aria-labelledby="heading95"
+                    data-bs-parent="#questionsAndAnswers">
+                    <div class="accordion-body">
+                        <p>Sound is audible vibration. This simple definition implies the potential for inaudible
+                            vibrations, such as vibrations with an extremely high or low frequency (outside of the range
+                            of human hearing). Vibrations which have an extreme amplitude (or in layman's terms, volume
+                            level) of above 140dB could be described as inaudible because they could damage the ear and
+                            cause hearing loss. Finally, vibrations below the threshold of hearing would be inaudible.
+                            The threshold of hearing is generally reported as the RMS sound pressure of 20 µPa
+                            (micropascals) = 2x10-5 pascal (Pa). It is approximately the quietest sound a young human
+                            with undamaged hearing can detect at 1,000 Hz. The threshold of hearing is frequency
+                            dependent and it has been shown that the ear's sensitivity is best at frequencies between 1
+                            kHz and 5 kHz. The vibrations created by a falling tree would be inaudible to "one" that was
+                            not "around." However, the question only postulates the absence of a human. The existence of
+                            hearing animals in a forest environment would be likely and therefore, the compressions and
+                            rarefactions of air would have been heard and would be defined as sound.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading96">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse96" aria-expanded="false" aria-controls="collapse6">
+                        What is the air speed velocity of an unladen swallow?
+                    </button>
+                </h2>
+                <div id="collapse96" class="accordion-collapse collapse" aria-labelledby="heading96"
+                    data-bs-parent="#questionsAndAnswers">
+                    <div class="accordion-body">
+                        <p>The airspeed velocity of an unladen swallow is roughly 11 meters per second, or 24 miles per
+                            hour, beating its wings 7-9 times per second (rather than 43). This is based upon published
+                            species-wide averages of wing length and body mass, initial Strouhal estimates based on
+                            those averages and cross-species comparisons, the Lund wind tunnel study of birds flying at
+                            a range of speeds, and revised Strouhal numbers based on that study gives an estimate that
+                            the average cruising airspeed velocity of an unladen European Swallow is roughly 11 meters
+                            per second, or 24 miles per hour. That being said, it depends on whether you are talking
+                            about an African or European swallow.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading97">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse97" aria-expanded="false" aria-controls="collapse97">
+                        How much wood would a woodchuck chuck if a woodchuck could chuck wood?
+                    </button>
+                </h2>
+                <div id="collapse97" class="accordion-collapse collapse" aria-labelledby="heading97"
+                    data-bs-parent="#questionsAndAnswers">
+                    <div class="accordion-body">
+                        <p>The amount of wood that woodchucks would chuck on a given day varies greatly with the
+                            individual woodchuck. According to a <a
+                                href="https://www.nytimes.com/1989/01/08/nyregion/press-won-t-chuck-that-woodchuck-story.html">New
+                                York Times</a> article from 1989, New York State wildlife expert Dick Thomas estimated
+                            that a woodchuck could chuck around 35 cubic feet of dirt in the course of digging a burrow.
+                            Thomas <i>extrapolated</i> that if a woodchuck could chuck wood, they would chuck an amount
+                            equal to 700 pounds.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end accordion -->
+
+        <div class="display-6 py-5" id="credits">Credits</div>
+        <div class="container">
+            <p>
+                Developer : Justin Riley
+                <br>
+                Publisher : Justin Riley
+                <br>
+                Platform : Desktop Browser
+                <br>
+                Release Date : ???
+                <br>
+                Art : Justin Riley, J, game-icons.net
+                <br>
+                Clipart Sources : Pearson Scott Foersman, openclipart.org
+            </p>
+        </div>
+        <!--div  class="d-flex flex-column vh-100 justify-content-center align-items-center overflow-auto"><a id="soon-link" href="125/index.html"><span class="noto">⚾</span> PLAY BALL <span class="noto">⚾</span></a></div-->
+        <!-- <div  class="z-3"><a id="soon-link" href="125/index.html"><span class="noto">⚾</span> PLAY BALL <span class="noto">⚾</span></a></div> -->
+    </div>
+    </div>
+    <!-- <div id="loader"></div>  -->
+
+    <!-- <script>
+        window.mobileAndTabletCheck = function() {
+            let check = false;
+            (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
+            return check;
+        };
+        if(window.mobileAndTabletCheck()){
+            document.getElementById("soon-link").href = "#";
+            document.getElementById("soon-link").innerHTML = "<div>📵 Mobile support coming soon 📵</div><div>Available for desktop/laptop</div>";
+        }else{
+            document.getElementById("soon-link").classList.add("bouncy","btn","btn-xl","btn-success")
+        }
+    </script> -->
+
+
+
+
+    <footer class="footer p-5 ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <h2><a href="https://iobaseball.com" id="homeLink" class="link"></a>ioBaseball</a></h2>
+                </div>
+                <div class="col-lg-3">
+                    <h5>About</h5>
+                    <p>
+                        A deck-building baseball roguelike
+                    </p>
+                    <p>
+                        <li class="list-inline-item">
+                            <a href="index.html" class="link small">
+                                <small>Homepage</small>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="info.html#faq" 
+                                class="link small"><small>FAQ</small></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="info.html#credits"
+                                class="link small"><small>Credits</small></a>
+                        </li>
+                    </p>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Support Us</h5>
+                    <ul class="list-inline footer-links">
+                        <li class="list-inline-item">
+                            <a class="link footer-links" href="https://ko-fi.com/iobaseball"><img class="footer-icon-24"
+                                    src="images/socialIcons/kofi80x80.png">Ko-fi</a>
+                        </li>
+                        <li class="list-inline-item"><img class="footer-icon-24" src="images/ball24x24.png">Score a
+                            Season Ticket</li>
+                        <li class="list-inline-item"><img class="footer-icon-24" src="images/ball24x24.png">Name a
+                            Baseball Player</li>
+                        <li class="list-inline-item"><img class="footer-icon-24" src="images/ball24x24.png">Vote on New
+                            Features</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Follow Us</h5>
+                    <ul class="list-inline footer-links">
+                        <li class="list-inline-item">
+                            <a class="link footer-links" href="https://discord.gg/r49hCjcM"><img class="footer-icon-24"
+                                    src="images/socialIcons/discord80x80.png">Discord</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="link footer-links" href="https://mastodon.social/@iobaseball"><img
+                                    class="footer-icon-24" src="images/socialIcons/masto80x80.png">Mastodon</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="link footer-links" href="https://www.youtube.com/@iobaseball"><img
+                                    class="footer-icon-24" src="images/socialIcons/ytb80x80.png">YouTube</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="link footer-links" href="https://www.instagram.com/iobaseball/"><img
+                                    class="footer-icon-24" src="images/socialIcons/instab80x80.png">Instagram</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="link footer-links" href="https://www.twitch.tv/iobaseball"><img
+                                    class="footer-icon-24" src="images/socialIcons/twitch80x80.png">Twitch</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="link footer-links" href="https://www.threads.net/@iobaseball"><img
+                                    class="footer-icon-24" src="images/socialIcons/threads80x80.png">Threads</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p class="small"><small>&copy; Copyleft 2024. All lefts reserved.</small></p>
+                </div>
+                <div class="col-lg-6 text-end">
+                    <ul class="list-inline footer-links">
+                        <li class="list-inline-item">
+                            <!--a href="#" class="link">
+                                Privacy Policy
+                            </a-->
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="index.html" class="link small">
+                                <small>Homepage</small>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="info.html#faq" 
+                                class="link small"><small>FAQ</small></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="info.html#credits"
+                                class="link small"><small>Credits</small></a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center" id="footerFinalRow"></div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- <script>
+            const faqModal = document.createElement("div")
+            faqModal.classList.add("modal");
+            faqModal.setAttribute('id', "faqModal");
+        faqModal.innerHTML = `
+           
+
+
+                    </div>  end modal body -->
+
+    <!-- </div>
+            </div>
+
+        `.trim();
+        document.body.append(faqModal);
+        </script> -->
+
+    <!-- <script src="utilities/MersenneTwister.js"></script>
+    <script src="utilities/Name.js"></script>
+    <script src="utilities/HelpMe.js"></script>
+    <script src="utilities/Colors.js"></script>
+    <script src="model/baseball/baseballStates/AbstractBaseballGameState.js"></script>
+    <script src="model/baseball/baseballStates/AwayPlayerAtBat.js"></script>
+    <script src="model/baseball/baseballStates/AwayPlayerStepsUpToBat.js"></script>
+    <script src="model/baseball/baseballStates/BottomOfTheInning.js"></script>
+    <script src="model/baseball/baseballStates/EndOfGame.js"></script>
+    <script src="model/baseball/baseballStates/FinalMessage.js"></script>
+    <script src="model/baseball/baseballStates/HomePlayerAtBat.js"></script>
+    <script src="model/baseball/baseballStates/HomePlayerStepsUpToBat.js"></script>
+    <script src="model/baseball/baseballStates/InningIsNowAnOuting.js"></script>
+    <script src="model/baseball/baseballStates/PlayBall.js"></script>
+    <script src="model/baseball/baseballStates/TopOfTheInning.js"></script>
+    <script src="model/baseball/stats/Stats.js"></script>
+    <script src="model/baseball/stats/GameEvent.js"></script>
+    <script src="model/baseball/stats/EventManager.js"></script>
+    <script src="model/baseball/PlayerAttributes.js"></script>
+    <script src="model/baseball/PlayerCondition.js"></script>
+    <script src="model/baseball/BaseballPlayer.js"></script>
+    <script src="model/baseball/Crest.js"></script>
+    <script src="model/baseball/BaseballTeam.js"></script>
+    <script src="model/baseball/BaseballGameBoxScore.js"></script>
+    <script src="model/baseball/BaseballGameMessage.js"></script>
+    <script src="model/baseball/BaseballGame.js"></script>
+    <script src="model/baseball/Schedule.js"></script>
+    <script src="model/baseball/RegularSeasonSchedule.js"></script>
+    <script src="model/baseball/Season.js"></script>
+    <script src="model/baseball/League.js"></script>
+    <script src="model/cards/TradingCard.js"></script>
+    <script src="model/cards/JokerCard.js"></script>
+    <script src="model/cards/PotionCard.js"></script>
+    <script src="model/cards/LuckyJokerCard.js"></script>
+    <script src="model/cards/LuckyShoeCard.js"></script>
+    <script src="model/cards/CursedShoeCard.js"></script>
+    <script src="model/cards/LuckyHatCard.js"></script>
+    <script src="model/cards/CursedHatCard.js"></script>
+    <script src="model/cards/LuckyMoneymakerCard.js"></script>
+    <script src="model/cards/CursedMoneymakerCard.js"></script>
+    <script src="model/cards/LuckyShirtCard.js"></script>
+    <script src="model/cards/CursedShirtCard.js"></script>
+    <script src="model/cards/ConcessionsCard.js"></script>
+    <script src="model/cards/SaltyConcessionsCard.js"></script>
+    <script src="model/cards/SweetConcessionsCard.js"></script>
+    <script src="model/cards/HotConcessionsCard.js"></script>
+    <script src="model/cards/CoffeeConcessionsCard.js"></script>
+    <script src="model/cards/ApocryphaCard.js"></script>
+    <script src="model/cards/CelestialCard.js"></script>
+    <script src="model/cards/PlaceholderCard.js"></script>
+    <script src="model/cards/SluggerCard.js"></script>
+    <script src="model/cards/PitcherCard.js"></script>
+    <script src="model/cards/FavTeamCard.js"></script>
+    <script src="model/plotDevices/PlotDevice.js"></script>
+    <script src="model/plotDevices/WhirlwindA.js"></script>
+    <script src="model/plotDevices/WhirlwindB.js"></script>
+    <script src="model/plotDevices/WhirlwindC.js"></script>
+    <script src="model/plotDevices/WhirlwindD.js"></script>
+    <script src="model/plotDevices/WhirlwindE.js"></script>
+    <script src="model/upgrades/Upgrade.js"></script>
+    <script src="model/upgrades/TheBoar.js"></script>
+    <script src="model/upgrades/TheFountain.js"></script>
+    <script src="model/upgrades/TheDevilfish.js"></script>
+    <script src="model/upgrades/ThePoisonApple.js"></script>
+    <script src="model/upgrades/TheFlightlessFowl.js"></script>
+    <script src="model/upgrades/TheOccultHand.js"></script>
+    <script src="model/upgrades/TheIllusionist.js"></script>
+    <script src="model/User.js"></script>
+    <script src="model/NewsTicker.js"></script>
+    <script src="model/BroadcastNews.js"></script>
+    <script src="model/Valuables.js"></script>
+    <script src="model/Shop.js"></script>
+    <script src="model/World.js"></script>
+    <script src="model/Model.js"></script>
+    <script src="view/View.js"></script>
+    <script src="view/NavBar.js"></script>
+    <script src="view/UpgradeCardComponent.js"></script>
+    <script src="view/TradingCardComponent.js"></script>
+    <script src="view/GamePostComponent.js"></script>
+    <script src="view/SocialPostComponent.js"></script>
+    <script src="view/SingleGamePage.js"></script>
+    <script src="view/LiveGamesPage.js"></script>
+    <script src="view/SchedulePage.js"></script>
+    <script src="view/StandingsPage.js"></script>
+    <script src="view/AfternoonHomePage.js"></script>
+    <script src="view/ShopHomePage.js"></script>
+    <script src="view/NightHomePage.js"></script>
+    <script src="view/PerformanceHomePage.js"></script>
+    <script src="view/PromptToLoadHomePage.js"></script>
+    <script src="view/UserPage.js"></script>
+    <script src="view/PromptToLoadView.js"></script>
+    <script src="view/ShopView.js"></script>
+    <script src="view/AfternoonView.js"></script>
+    <script src="view/NightView.js"></script>
+    <script src="view/PerformanceView.js"></script>
+    <script src="view/StatsModal.js"></script>
+    <script src="view/ConfirmModal.js"></script>
+    <script src="view/GameWidgetComponent.js"></script>
+    <script src="Controller.js"></script>
+    <script src="script.js"></script> -->
+    <!-- <script src="script.min.js"></script> -->
+</body>
+
+</html>

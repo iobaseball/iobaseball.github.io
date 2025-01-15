@@ -1,0 +1,11 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+	<title>hot</title>
+	<style>
+		.s0 { fill: #f45b69;stroke: #ffffff;stroke-miterlimit:10;stroke-width: 2;stroke-dasharray: NaN } 
+		.s1 { fill: none;stroke: #ffffff;stroke-linecap: round;stroke-miterlimit:10;stroke-width: 27.5;stroke-dasharray: NaN } 
+	</style>
+	<path class="s0" d="m0 400v-400h400v400z"/>
+	<path fill-rule="evenodd" class="s1" d="m98 102c0 0 22 37.5 22 67 0 20.3-46 61.4-46 92 0 29.6 24 59 24 59"/>
+	<path fill-rule="evenodd" class="s1" d="m198 73c0 0 22 37.5 22 67 0 20.3-46 61.4-46 92 0 29.6 24 59 24 59"/>
+	<path fill-rule="evenodd" class="s1" d="m295 103c0 0 22 37.5 22 67 0 20.3-46 61.4-46 92 0 29.6 24 59 24 59"/>
+</svg>

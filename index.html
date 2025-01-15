@@ -25,9 +25,10 @@
 
 </head>
 
-<body>
-    <div id="root" class="container-fluid pt-4">
-        <div  class="display-1 text-center"><a id="soon-link" href="2501/index.html"><span class="noto">⚾</span> PLAY BALL <span class="noto">⚾</span></a></div>
+<body class="d-flex flex-column vh-100">
+    <div id="root" class="container-fluid h-50 d-flex align-items-center justify-content-center overflow-auto">
+        <!--div  class="d-flex flex-column vh-100 justify-content-center align-items-center overflow-auto"><a id="soon-link" href="125/index.html"><span class="noto">⚾</span> PLAY BALL <span class="noto">⚾</span></a></div-->
+        <div  class="z-3"><a id="soon-link" href="125/index.html"><span class="noto">⚾</span> PLAY BALL <span class="noto">⚾</span></a></div>
     </div>
     <!-- <div id="loader"></div>  -->
 
@@ -48,7 +49,7 @@
     
 
 
-    <footer class="footer p-5 mt-5">
+    <footer class="footer p-5 fixed-bottom z-0">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -57,15 +58,30 @@
                 <div class="col-lg-3">
                     <h5>About</h5>
                     <p>
-                        ioBaseball is one of the games on the web
+                        A deck-building baseball roguelike
                     </p>
-                    <p><a href="#" class="link">FAQ</a></p>
+                    <p>
+                        <li class="list-inline-item">
+                            <a href="index.html" class="link small">
+                                <small>Homepage</small>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="info.html#faq" 
+                                class="link small"><small>FAQ</small></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="info.html#credits"
+                                class="link small"><small>Credits</small></a>
+                        </li>
+                </p>
+                    <!-- <p><a href="info.html" id="faqLink" class="link" data-bs-toggle="modal" data-bs-target="#faqModal">FAQ</a></p> -->
                 </div>
                 <div class="col-lg-3">
                     <h5>Support Us</h5>
                     <ul class="list-inline footer-links">
                         <li class="list-inline-item">
-                            <a class="link footer-links" href="https://ko-fi.com/iobaseball"><img class="footer-icon-24" src="images/kofi80x80.png">Ko-fi</a>
+                            <a class="link footer-links" href="https://ko-fi.com/iobaseball"><img class="footer-icon-24" src="images/socialIcons/kofi80x80.png">Ko-fi</a>
                         </li>
                         <li class="list-inline-item"><img class="footer-icon-24" src="images/ball24x24.png">Score a Season Ticket</li>
                         <li class="list-inline-item"><img class="footer-icon-24" src="images/ball24x24.png">Name a Baseball Player</li>
@@ -76,22 +92,22 @@
                     <h5>Follow Us</h5>
                     <ul class="list-inline footer-links">
                         <li class="list-inline-item">
-                            <a class="link footer-links" href="https://discord.gg/r49hCjcM"><img class="footer-icon-24" src="images/discord80x80.png">Discord</a>
+                            <a class="link footer-links" href="https://discord.gg/r49hCjcM"><img class="footer-icon-24" src="images/socialIcons/discord80x80.png">Discord</a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="link footer-links" href="https://mastodon.social/@iobaseball"><img class="footer-icon-24" src="images/masto80x80.png">Mastodon</a>
+                            <a class="link footer-links" href="https://mastodon.social/@iobaseball"><img class="footer-icon-24" src="images/socialIcons/masto80x80.png">Mastodon</a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="link footer-links" href="https://www.youtube.com/@iobaseball"><img class="footer-icon-24" src="images/ytb80x80.png">YouTube</a>
+                            <a class="link footer-links" href="https://www.youtube.com/@iobaseball"><img class="footer-icon-24" src="images/socialIcons/ytb80x80.png">YouTube</a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="link footer-links" href="https://www.instagram.com/iobaseball/"><img class="footer-icon-24" src="images/instab80x80.png">Instagram</a>
+                            <a class="link footer-links" href="https://www.instagram.com/iobaseball/"><img class="footer-icon-24" src="images/socialIcons/instab80x80.png">Instagram</a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="link footer-links" href="https://www.twitch.tv/iobaseball"><img class="footer-icon-24" src="images/twitch80x80.png">Twitch</a>
+                            <a class="link footer-links" href="https://www.twitch.tv/iobaseball"><img class="footer-icon-24" src="images/socialIcons/twitch80x80.png">Twitch</a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="link footer-links" href="https://www.threads.net/@iobaseball"><img class="footer-icon-24" src="images/threads80x80.png">Threads</a>
+                            <a class="link footer-links" href="https://www.threads.net/@iobaseball"><img class="footer-icon-24" src="images/socialIcons/threads80x80.png">Threads</a>
                         </li>
                     </ul>
                 </div>
@@ -104,19 +120,22 @@
                 <div class="col-lg-6 text-end">
                     <ul class="list-inline footer-links">
                         <li class="list-inline-item">
-                            <a href="#" class="link">
+                            <!--a href="#" class="link">
                                 Privacy Policy
+                            </a-->
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="index.html" class="link small">
+                                <small>Homepage</small>
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#" class="link">
-                                Terms of Service
-                            </a>
+                            <a href="info.html#faq" 
+                                class="link small"><small>FAQ</small></a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#" class="link">
-                                Sitemap
-                            </a>
+                            <a href="info.html#credits"
+                                class="link small"><small>Credits</small></a>
                         </li>
                     </ul>
                 </div>
@@ -130,6 +149,156 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+        <!-- <script>
+            const faqModal = document.createElement("div")
+            faqModal.classList.add("modal");
+            faqModal.setAttribute('id', "faqModal");
+        faqModal.innerHTML = `
+            <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Frequently Asked Questions</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="accordion" id="questionsAndAnswers">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                    How do you play this game?
+                                </button>
+                                </h2>
+                                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#questionsAndAnswers">
+                                <div class="accordion-body">
+                                    <p>GAIN VICTORY POINTS TO LEVEL UP: Your goal is to gain enough Victory Points to level up. Victory Points are gained by earning Red Magic, Green Magic, and Blue Magic. At the beginning of the game, you have 1 <span class="noto">🔥</span> (Red Magic) x 13 <span class="noto">🌵</span> (Green Magic) x 12 <span class="noto">💧</span> (Blue Magic) = 156 <span class="noto">👑</span> (Victory Points). In other words, red multiplied by green multiplied by blue equals victory points. Make sure that you buy a card that will earn <span class="noto">🔥</span> (Red Magic), buy another card to earn <span class="noto">🌵</span> (Green Magic), and buy one or more cards to earn <span class="noto">💧</span> (Blue Magic).</p>
+                                    <p>BUY CARDS AND UPGRADES FROM TRADING CARD SHOP TO EARN MAGIC: Each in-game day begins at the Trading Card Shop. Buy cards and upgrades that will potentially earn magic. There are 3 basic types of trading card and lots of joker cards. The 3 basic types of trading cards are Slugger Cards, Fav Team Cards, and Pitcher Cards. Each day there are a few teams that are not scheduled to play, but the Trading Card Shop will ONLY sell cards for teams and players that are playing games "today." You can also sell one of your cards at any time by clicking on the User Profile icon in the top-right and clicking the SELL ME button below the card.</p>
+                                    <p>PLAY BALL: When you're done buying cards, press the yellow CONTINUE button. Baseball teams will play baseball. With any luck, the players and teams that you invested in (when you bought their cards) will get hits/score runs/throw strikeouts and you will earn <span class="noto">🔥</span> (Red Magic), <span class="noto">🌵</span> (Green Magic), and <span class="noto">💧</span> (Blue Magic). You can also sell one of your cards at any time by clicking on the User Profile icon in the top-right and clicking the SELL ME button below the card. Once all of today's games have finished, press the yellow CONTINUE button. Next is a news update and once it's finished you will CONTINUE to the final phase of the day: the Performance Review.</p>
+                                    <p>PERFORMANCE REVIEW: If you scored the VP Goal or higher, you have leveled up <span class="noto">🚀</span> and can now unlock a new type of Trading Card. After leveling up, your VP Goal <span class="noto">👑</span> will be higher tomorrow. If you did not reach the VP Goal, you lose a life <span class="noto">🩸</span> and can now unlock a new type of Upgrade. Click one of the three options and then click CONTINUE to start the next day.</p>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                    How do you get magic?
+                                </button>
+                                </h2>
+                                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#questionsAndAnswers">
+                                <div class="accordion-body">
+                                    <p>SLUGGER CARDS: Earn +10 <span class="noto">💧</span> (Blue Magic) each time this player gets a hit. A hit could be either a single, double, triple, or a home run. Foul balls, ground outs, and fly outs do NOT count as hits.</p>
+                                    <p>FAV TEAM CARDS: Earn +8 <span class="noto">🌵</span> (Green Magic) each time this team scores a run. A run occurs when a baseball player makes it around all the bases and touches home. A home run counts as 1 run. If there are also 1 or more baserunners when a home run is hit, then multiple runs are instantly scored (for example, a TWO-RUN HOME RUN, a THREE-RUN HOME RUN, or a GRAND SLAM HOME RUN which is 4 runs).</p>
+                                    <p>PITCHER CARDS: Earn +3 <span class="noto">🔥</span> (Red Magic) each time this pitcher throws a strikeout. A strikeout is when a pitcher throws any combination of three swinging or looking strikes to a hitter. Foul balls also count as strikes, but a batter cannot earn their third strike by hitting a foul ball.</p>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                    Are the Forbidden Upgrades actually forbidden?
+                                </button>
+                                </h2>
+                                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#questionsAndAnswers">
+                                <div class="accordion-body">
+                                    <p>No, they are not actually forbidden. It just says that for spooky fun. Imagine that there is a dark, mysterious "back room" in the trading card shop and there is a sign that says "No Cops Allowed." That's the vibe. The Occult Hand upgrade will be really useful so that you can hold more cards.</p>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                    Where are the playoffs?
+                                </button>
+                                </h2>
+                                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#questionsAndAnswers">
+                                <div class="accordion-body">
+                                    <p>The ioLB Playoffs are a monthly event held on <a>the ioBaseball Discord</a>. The playoffs are separate from the single-player roguelike game.</p>
+                                </div>
+                                </div>
+                            </div>-->
+                            <!-- Repeat similar structure for each question -->
+                            <!-- <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading93">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse93" aria-expanded="false" aria-controls="collapse93">
+                                    What is the answer to life, the universe, and everything?
+                                </button>
+                                </h2>
+                                <div id="collapse93" class="accordion-collapse collapse" aria-labelledby="heading93" data-bs-parent="#questionsAndAnswers">
+                                <div class="accordion-body">
+                                    <p>42</p>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading94">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse94" aria-expanded="false" aria-controls="collapse94">
+                                    Who's on first?
+                                </button>
+                                </h2>
+                                <div id="collapse94" class="accordion-collapse collapse" aria-labelledby="heading94" data-bs-parent="#questionsAndAnswers">
+                                <div class="accordion-body">
+                                    <p>The first baseman is named “Who.” Confusion is stemmed by the utterance “Who's on first” which is ambiguous between the question being posed (which person is the first baseman?) and the answer to the question (the name of the first baseman is 'Who').</p>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading95">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse95" aria-expanded="false" aria-controls="collapse95">
+                                    If a tree falls in the forest and no one is around to hear it does it make a sound?
+                                </button>
+                                </h2>
+                                <div id="collapse95" class="accordion-collapse collapse" aria-labelledby="heading95" data-bs-parent="#questionsAndAnswers">
+                                <div class="accordion-body">
+                                    <p>Sound is audible vibration. This simple definition implies the potential for inaudible vibrations, such as vibrations with an extremely high or low frequency (outside of the range of human hearing). Vibrations which have an extreme amplitude (or in layman's terms, volume level) of above 140dB could be described as inaudible because they could damage the ear and cause hearing loss. Finally, vibrations below the threshold of hearing would be inaudible. The threshold of hearing is generally reported as the RMS sound pressure of 20 µPa (micropascals) = 2x10-5 pascal (Pa). It is approximately the quietest sound a young human with undamaged hearing can detect at 1,000 Hz. The threshold of hearing is frequency dependent and it has been shown that the ear's sensitivity is best at frequencies between 1 kHz and 5 kHz. The vibrations created by a falling tree would be inaudible to "one" that was not "around." However, the question only postulates the absence of a human. The existence of hearing animals in a forest environment would be likely and therefore, the compressions and rarefactions of air would have been heard and would be defined as sound.</p>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading96">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse96" aria-expanded="false" aria-controls="collapse6">
+                                    What is the air speed velocity of an unladen swallow?
+                                </button>
+                                </h2>
+                                <div id="collapse96" class="accordion-collapse collapse" aria-labelledby="heading96" data-bs-parent="#questionsAndAnswers">
+                                <div class="accordion-body">
+                                    <p>The airspeed velocity of an unladen swallow is roughly 11 meters per second, or 24 miles per hour, beating its wings 7-9 times per second (rather than 43). This is based upon published species-wide averages of wing length and body mass, initial Strouhal estimates based on those averages and cross-species comparisons, the Lund wind tunnel study of birds flying at a range of speeds, and revised Strouhal numbers based on that study gives an estimate that the average cruising airspeed velocity of an unladen European Swallow is roughly 11 meters per second, or 24 miles per hour. That being said, it depends on whether you are talking about an African or European swallow.</p>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading97">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse97" aria-expanded="false" aria-controls="collapse97">
+                                    How much wood would a woodchuck chuck if a woodchuck could chuck wood?
+                                </button>
+                                </h2>
+                                <div id="collapse97" class="accordion-collapse collapse" aria-labelledby="heading97" data-bs-parent="#questionsAndAnswers">
+                                <div class="accordion-body">
+                                    <p>The amount of wood that woodchucks would chuck on a given day varies greatly with the individual woodchuck. According to a <a href="https://www.nytimes.com/1989/01/08/nyregion/press-won-t-chuck-that-woodchuck-story.html">New York Times</a> article from 1989, New York State wildlife expert Dick Thomas estimated that a woodchuck could chuck around 35 cubic feet of dirt in the course of digging a burrow. Thomas <i>extrapolated</i> that if a woodchuck could chuck wood, they would chuck an amount equal to 700 pounds.</p>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading98">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse98" aria-expanded="false" aria-controls="collapse98">
+                                    Do you expect me to talk?
+                                </button>
+                                </h2>
+                                <div id="collapse98" class="accordion-collapse collapse" aria-labelledby="heading98" data-bs-parent="#questionsAndAnswers">
+                                <div class="accordion-body">
+                                    <p>No, Mr. Bond. I expect you to die.</p>
+                                </div>
+                                </div>
+                            </div>
+                        </div>-->  <!-- end accordion -->
+
+
+                   <!--  </div> --><!-- end modal body -->
+                    
+               <!-- </div>
+            </div>
+
+        `.trim();
+        document.body.append(faqModal);
+        </script> -->
 
     <!-- <script src="utilities/MersenneTwister.js"></script>
     <script src="utilities/Name.js"></script>

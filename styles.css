@@ -227,10 +227,8 @@ body {
     gap: 0.5rem; /* Optional: Add spacing between grid items */
 }
 
-input[type=range] {
-    -webkit-appearance: none; /* For WebKit browsers */
-    -moz-appearance: none; /* For Firefox */
-    appearance: none; /* Standard */
+input[type=range]{
+    -webkit-appearance: none;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
@@ -502,7 +500,7 @@ sup.gameWidgetCenterBase { */
     transition: background-color 0.4s, color 0.4s; /* Smooth transition */
 }
 .noto {
-    font-family: "Noto Color Emoji", sans-serif;
+    font-family: "Noto Color Emoji",Apple Color Emoji, sans-serif;
     font-weight: 400;
     font-style: normal;
 }

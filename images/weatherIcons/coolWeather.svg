@@ -1,0 +1,11 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+	<title>cool</title>
+	<style>
+		.s0 { fill: #7189ff;stroke: #ffffff;stroke-miterlimit:10;stroke-width: 2;stroke-dasharray: NaN } 
+		.s1 { fill: none;stroke: #ffffff;stroke-linecap: round;stroke-miterlimit:10;stroke-width: 27.5;stroke-dasharray: NaN } 
+	</style>
+	<path class="s0" d="m0 400v-400h400v400z"/>
+	<path fill-rule="evenodd" class="s1" d="m199.5 107v189"/>
+	<path fill-rule="evenodd" class="s1" d="m121 148.8l157 105.4"/>
+	<path fill-rule="evenodd" class="s1" d="m278 148.8l-157 105.4"/>
+</svg>
