@@ -63,7 +63,7 @@
     </head>
     <body>
         <div class="container my-5 p-5">
-            <div id="grid-container container p-5" class="">
+            <div id="grid-container" class="container p-5">
                 <h1 class="text-center">⚾ioLB Round 1 Playoff Card⚾</h1>
                 <div style="color: #fff" class="text-center">
                     <small
@@ -156,17 +156,21 @@
                 game..."</small
             >
             <div id="checkboxes" class="checkbox-container fs-4"></div>
-            <div class="py-5 text-center small"><small>v0.250121.2.47</small></div>
+            <div class="py-5 text-center small"><small>v0.250121.3.03</small></div>
         </div>
 
         <!-- Bootstrap JS and Popper.js -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const saveButton = document.getElementById("save-btn");
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const saveButton = document.getElementById("save-btn");
                 const checkboxContainer = document.getElementById("checkboxes");
                 const gridItems = document.querySelectorAll(".grid-item");
                 const gridContainer = document.getElementById("grid-container");
+                console.log(gridContainer)
                 const checkboxList = [
                     "VA defeats SF",
                     "SF defeats VA",
@@ -209,10 +213,10 @@
 
                 function addToGrid(itemText) {
                     const gridItems = document.querySelectorAll(".grid-item");
-                    console.log(gridItems);
                     const emptyCells = Array.from(gridItems).filter(
                         (item) =>
-                            !item.textContent.trim() || item.textContent == "⚾"
+                            !item.textContent.trim() ||
+                            item.textContent == "⚾"
                     );
 
                     if (emptyCells.length > 0) {
@@ -235,183 +239,6 @@
                         }
                     }
                 }
-
-                // Function to remove the unchecked item from grid and replace it with "empty"
-                function removeFromGrid(checkboxValue) {
-                    gridItems.forEach((item) => {
-                        if (item.textContent == checkboxValue) {
-                            item.textContent = "⚾"; // Replace the content of the unchecked cell with "empty"
-                        }
-                    });
-                }
-
-                function showAlert(message, type = "danger") {
-                    const container = document.querySelector(".container");
-                    const alert = document.createElement("div");
-                    alert.classList.add("alert", `alert-${type}`, "mt-3");
-                    alert.textContent = message;
-
-                    container.insertBefore(alert, container.firstChild);
-
-                    // Automatically dismiss after 3 seconds
-                    setTimeout(() => {
-                        alert.remove();
-                    }, 3000);
-                }
-
-                // Function to handle dragging and dropping
-                //let draggedItem = null;
-                // gridItems.forEach(item => {
-                //     item.addEventListener('dragstart', (e) => {
-                //         draggedItem = e.target;
-                //         setTimeout(() => {
-                //             e.target.classList.add('dragging');
-                //         }, 0);
-                //     });
-
-                //     item.addEventListener('dragend', (e) => {
-                //         e.target.classList.remove('dragging');
-                //     });
-
-                //     item.addEventListener('dragover', (e) => {
-                //         e.preventDefault();
-                //     });
-
-                //     item.addEventListener('dragenter', (e) => {
-                //         e.preventDefault();
-                //         if (e.target !== draggedItem) {
-                //             e.target.classList.add('drag-hover');
-                //         }
-                //     });
-
-                //     item.addEventListener('dragleave', (e) => {
-                //         e.target.classList.remove('drag-hover');
-                //     });
-
-                //     item.addEventListener('drop', (e) => {
-                //         e.preventDefault();
-                //         if (e.target !== draggedItem) {
-                //             e.target.classList.remove('drag-hover');
-                //             const targetItem = e.target;
-                //             const tempText = draggedItem.textContent;
-                //             draggedItem.textContent = targetItem.textContent;
-                //             targetItem.textContent = tempText;
-                //         }
-                //     });
-                // });
-                // mobile drag and drop
-                //let draggedItem = null;
-                let draggedItem = null;
-                let touchStartX = 0;
-                let touchStartY = 0;
-                let previousHoverItem = null;
-
-                gridItems.forEach((item) => {
-                    // Desktop drag events
-                    item.addEventListener("dragstart", (e) => {
-                        draggedItem = e.target;
-                        setTimeout(() => {
-                            e.target.classList.add("dragging");
-                        }, 0);
-                    });
-
-                    item.addEventListener("dragend", (e) => {
-                        e.target.classList.remove("dragging");
-                        draggedItem = null;
-                    });
-
-                    item.addEventListener("dragover", (e) => {
-                        e.preventDefault();
-                    });
-
-                    item.addEventListener("dragenter", (e) => {
-                        e.preventDefault();
-                        if (e.target !== draggedItem) {
-                            e.target.classList.add("drag-hover");
-                        }
-                    });
-
-                    item.addEventListener("dragleave", (e) => {
-                        e.target.classList.remove("drag-hover");
-                    });
-
-                    item.addEventListener("drop", (e) => {
-                        e.preventDefault();
-                        if (e.target !== draggedItem) {
-                            e.target.classList.remove("drag-hover");
-                            const targetItem = e.target;
-                            const tempText = draggedItem.textContent;
-                            draggedItem.textContent = targetItem.textContent;
-                            targetItem.textContent = tempText;
-                        }
-                    });
-
-                    // Mobile touch events
-                    item.addEventListener("touchstart", (e) => {
-                        e.preventDefault();
-                        draggedItem = e.target;
-                        touchStartX = e.touches[0].clientX;
-                        touchStartY = e.touches[0].clientY;
-                        draggedItem.classList.add("dragging");
-                    });
-
-                    item.addEventListener("touchmove", (e) => {
-                        e.preventDefault();
-                        const touch = e.touches[0];
-                        const elementBelow = document.elementFromPoint(
-                            touch.clientX,
-                            touch.clientY
-                        );
-
-                        if (
-                            elementBelow &&
-                            elementBelow.classList.contains("grid-item") &&
-                            elementBelow !== draggedItem
-                        ) {
-                            if (
-                                previousHoverItem &&
-                                previousHoverItem !== elementBelow
-                            ) {
-                                previousHoverItem.classList.remove(
-                                    "drag-hover"
-                                );
-                            }
-
-                            elementBelow.classList.add("drag-hover");
-                            previousHoverItem = elementBelow;
-                        }
-                    });
-
-                    item.addEventListener("touchend", (e) => {
-                        e.preventDefault();
-                        const touchEndX = e.changedTouches[0].clientX;
-                        const touchEndY = e.changedTouches[0].clientY;
-
-                        const elementBelow = document.elementFromPoint(
-                            touchEndX,
-                            touchEndY
-                        );
-                        if (
-                            elementBelow &&
-                            elementBelow.classList.contains("grid-item") &&
-                            elementBelow !== draggedItem
-                        ) {
-                            elementBelow.classList.remove("drag-hover");
-                            const tempText = draggedItem.textContent;
-                            draggedItem.textContent = elementBelow.textContent;
-                            elementBelow.textContent = tempText;
-                        }
-
-                        if (previousHoverItem) {
-                            previousHoverItem.classList.remove("drag-hover");
-                        }
-
-                        draggedItem.classList.remove("dragging");
-                        draggedItem = null;
-                        previousHoverItem = null;
-                    });
-                });
-
                 // Create and append checkboxes to the container
                 checkboxList.forEach((item, index) => {
                     const div = document.createElement("div");
@@ -447,54 +274,186 @@
                     });
                 });
 
-                // Save Image functionality
-        saveButton.addEventListener('click', () => {
-            const script = document.createElement('script');
-            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
-            document.head.appendChild(script);
-
-            script.onload = () => {
-                html2canvas(gridContainer, {
-                    scale: window.devicePixelRatio,
-                    useCORS: true,
-                    allowTaint: false,
-                })
-                    .then((canvas) => {
-                        const imageURL = canvas.toDataURL('image/png');
-                        const now = new Date();
-                        const dateString = `${now.getFullYear()}-${String(
-                            now.getMonth() + 1
-                        ).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-
-                        if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
-                            const newWindow = window.open('', '_blank');
-                            if (newWindow) {
-                                newWindow.document.write(
-                                    `<img src="${imageURL}" alt="Grid" style="width:100%;height:auto;">`
-                                );
-                            } else {
-                                alert(
-                                    'Unable to open the image. Please allow popups in your browser settings.'
-                                );
-                            }
-                        } else {
-                            const link = document.createElement('a');
-                            link.href = imageURL;
-                            link.download = `bingo-grid-${dateString}.png`;
-                            document.body.appendChild(link);
-                            link.click();
-                            document.body.removeChild(link);
+                // Function to remove the unchecked item from grid and replace it with "empty"
+                function removeFromGrid(checkboxValue) {
+                    gridItems.forEach((item) => {
+                        if (item.textContent == checkboxValue) {
+                            item.textContent = "⚾"; // Replace the content of the unchecked cell with "empty"
                         }
-                    })
-                    .catch((error) => {
-                        console.error('Error generating canvas:', error);
-                        alert('Failed to save the image. Please try again.');
                     });
-            };
+                }
+
+                function showAlert(message, type = "info") {
+                    const container = document.querySelector(".container");
+                    const alert = document.createElement("div");
+                    alert.classList.add("alert", `alert-${type}`, "mt-3");
+                    alert.textContent = message;
+
+                    container.insertBefore(alert, container.firstChild);
+
+                    // Automatically dismiss after 3 seconds
+                    setTimeout(() => {
+                        alert.remove();
+                    }, 3000);
+                }
+        // const gridItems = document.querySelectorAll('.grid-item');
+        // const saveButton = document.getElementById('save-btn');
+        //const gridContainer = document.getElementById('grid-container');
+
+        let draggedItem = null;
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let previousHoverItem = null;
+
+        function trimTextContent(text) {
+            return text.replace(/\s+/g, '').trim();
+        }
+
+        gridItems.forEach(item => {
+            // Desktop drag events
+            item.addEventListener('dragstart', (e) => {
+                draggedItem = e.target;
+                setTimeout(() => {
+                    e.target.classList.add('dragging');
+                }, 0);
+            });
+
+            item.addEventListener('dragend', (e) => {
+                e.target.classList.remove('dragging');
+                draggedItem = null;
+            });
+
+            item.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            item.addEventListener('dragenter', (e) => {
+                e.preventDefault();
+                if (e.target !== draggedItem) {
+                    e.target.classList.add('drag-hover');
+                }
+            });
+
+            item.addEventListener('dragleave', (e) => {
+                e.target.classList.remove('drag-hover');
+            });
+
+            item.addEventListener('drop', (e) => {
+                e.preventDefault();
+                if (e.target !== draggedItem) {
+                    e.target.classList.remove('drag-hover');
+                    const targetItem = e.target;
+                    const tempText = trimTextContent(draggedItem.textContent);
+                    draggedItem.textContent = trimTextContent(targetItem.textContent);
+                    targetItem.textContent = tempText;
+                }
+            });
+
+            // Mobile touch events
+            item.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                draggedItem = e.target;
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+                draggedItem.classList.add('dragging');
+            });
+
+            item.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                const touch = e.touches[0];
+                const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
+
+                if (elementBelow && elementBelow.classList.contains('grid-item') && elementBelow !== draggedItem) {
+                    if (previousHoverItem && previousHoverItem !== elementBelow) {
+                        previousHoverItem.classList.remove('drag-hover');
+                    }
+
+                    elementBelow.classList.add('drag-hover');
+                    previousHoverItem = elementBelow;
+                }
+            });
+
+            item.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                const touchEndX = e.changedTouches[0].clientX;
+                const touchEndY = e.changedTouches[0].clientY;
+
+                const elementBelow = document.elementFromPoint(touchEndX, touchEndY);
+                if (elementBelow && elementBelow.classList.contains('grid-item') && elementBelow !== draggedItem) {
+                    elementBelow.classList.remove('drag-hover');
+                    const tempText = trimTextContent(draggedItem.textContent);
+                    draggedItem.textContent = trimTextContent(elementBelow.textContent);
+                    elementBelow.textContent = tempText;
+                }
+
+                if (previousHoverItem) {
+                    previousHoverItem.classList.remove('drag-hover');
+                }
+
+                draggedItem.classList.remove('dragging');
+                draggedItem = null;
+                previousHoverItem = null;
+            });
         });
 
+        // Save Image functionality
+        const loadHtml2CanvasAndSave = () => {
+            console.log('gridContainer:', gridContainer);
+if (!gridContainer) {
+    console.error('gridContainer element not found.');
+}
 
-            });
-        </script>
+            html2canvas(gridContainer, {
+                scale: window.devicePixelRatio,
+                useCORS: true,
+                allowTaint: false,
+            })
+                .then((canvas) => {
+                    const imageURL = canvas.toDataURL('image/png');
+                    const now = new Date();
+                    const dateString = `${now.getFullYear()}-${String(
+                        now.getMonth() + 1
+                    ).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+
+                    if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+                        const newWindow = window.open('', '_blank');
+                        if (newWindow) {
+                            newWindow.document.write(
+                                `<img src="${imageURL}" alt="Grid" style="width:100%;height:auto;">`
+                            );
+                        } else {
+                            alert(
+                                'Unable to open the image. Please allow popups in your browser settings.'
+                            );
+                        }
+                    } else {
+                        const link = document.createElement('a');
+                        link.href = imageURL;
+                        link.download = `bingo-grid-${dateString}.png`;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error generating canvas:', error);
+                    alert('Failed to save the image. Please try again.');
+                });
+        };
+
+        saveButton.addEventListener('click', () => {
+            if (typeof html2canvas === 'undefined') {
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+                document.head.appendChild(script);
+                script.onload = loadHtml2CanvasAndSave;
+            } else {
+                loadHtml2CanvasAndSave();
+            }
+        });
+    });
+</script>
+
+=
     </body>
 </html>
