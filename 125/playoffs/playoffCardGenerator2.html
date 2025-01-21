@@ -17,7 +17,7 @@
             
             
             min-height: 120px;
-            border: 1px solid #ccc;
+            border: 3px solid #eeeeee;
             font-weight: normal;
             border-radius: 5px;
             
@@ -27,9 +27,21 @@
             cursor: grab;
             user-select: none;
         }
+        .grid-item.dragging {
+        background-color: #ffbebe; /* Light blue */
+        border: 3px dashed #ff0000; /* Blue dashed border */
+        opacity: 0.9;
+    }
+
+    .grid-item.drag-hover {
+        background-color: #c3ffc7; /* Gold */
+        border: 3px dashed #007c25; /* Blue dashed border */
+    }
 
         .dragging {
-            opacity: 0.5;
+            background-color: #b8b7ff; /* Light blue */
+        border: 5px dashed #120084; /* Blue dashed border */
+            opacity: 0.9;
         }
     </style>
 </head>
@@ -40,31 +52,31 @@
             <h1 class="text-center">⚾ ioLB Round 1 Playoff Card ⚾</h1>
             <div style="color:#fff" class="text-center"><small>What will happen in the first 4 games of the playoffs?  (Drag & drop to rearrange the grid)</small></div>
             <div class="row w-auto fs-4 px-4">
-                <div class="col-3 grid-item border d-flex align-items-center justify-content-center" draggable="true">⚾</div>
-                <div class="col-3 grid-item border d-flex align-items-center justify-content-center" draggable="true">⚾</div>
-                <div class="col-3 grid-item border d-flex align-items-center justify-content-center" draggable="true">⚾</div>
-                <div class="col-3 grid-item border d-flex align-items-center justify-content-center" draggable="true">⚾</div>
+                <div class="col-3 grid-item borde d-flex align-items-center justify-content-center" draggable="true">⚾</div>
+                <div class="col-3 grid-item borde d-flex align-items-center justify-content-center" draggable="true">⚾</div>
+                <div class="col-3 grid-item borde d-flex align-items-center justify-content-center" draggable="true">⚾</div>
+                <div class="col-3 grid-item borde d-flex align-items-center justify-content-center" draggable="true">⚾</div>
             </div>
             
             <div class="row w-auto fs-4 px-4">
-                <div class="col-3 grid-item border d-flex align-items-center justify-content-center" draggable="true">⚾</div>
-                <div class="col-3 grid-item border d-flex align-items-center justify-content-center" draggable="true">⚾</div>
-                <div class="col-3 grid-item border d-flex align-items-center justify-content-center" draggable="true">⚾</div>
-                <div class="col-3 grid-item border d-flex align-items-center justify-content-center" draggable="true">⚾</div>
+                <div class="col-3 grid-item borde d-flex align-items-center justify-content-center" draggable="true">⚾</div>
+                <div class="col-3 grid-item borde d-flex align-items-center justify-content-center" draggable="true">⚾</div>
+                <div class="col-3 grid-item borde d-flex align-items-center justify-content-center" draggable="true">⚾</div>
+                <div class="col-3 grid-item borde d-flex align-items-center justify-content-center" draggable="true">⚾</div>
             </div>
             
             <div class="row w-auto fs-4 px-4">
-                <div class="col-3 grid-item border d-flex align-items-center justify-content-center" draggable="true">⚾</div>
-                <div class="col-3 grid-item border d-flex align-items-center justify-content-center" draggable="true">⚾</div>
-                <div class="col-3 grid-item border d-flex align-items-center justify-content-center" draggable="true">⚾</div>
-                <div class="col-3 grid-item border d-flex align-items-center justify-content-center" draggable="true">⚾</div>
+                <div class="col-3 grid-item borde d-flex align-items-center justify-content-center" draggable="true">⚾</div>
+                <div class="col-3 grid-item borde d-flex align-items-center justify-content-center" draggable="true">⚾</div>
+                <div class="col-3 grid-item borde d-flex align-items-center justify-content-center" draggable="true">⚾</div>
+                <div class="col-3 grid-item borde d-flex align-items-center justify-content-center" draggable="true">⚾</div>
             </div>
             
             <div class="row w-auto fs-4 pb-4 px-4">
-                <div class="col-3 grid-item border d-flex align-items-center justify-content-center" draggable="true">⚾</div>
-                <div class="col-3 grid-item border d-flex align-items-center justify-content-center" draggable="true">⚾</div>
-                <div class="col-3 grid-item border d-flex align-items-center justify-content-center" draggable="true">⚾</div>
-                <div class="col-3 grid-item border d-flex align-items-center justify-content-center" draggable="true">⚾</div>
+                <div class="col-3 grid-item borde d-flex align-items-center justify-content-center" draggable="true">⚾</div>
+                <div class="col-3 grid-item borde d-flex align-items-center justify-content-center" draggable="true">⚾</div>
+                <div class="col-3 grid-item borde d-flex align-items-center justify-content-center" draggable="true">⚾</div>
+                <div class="col-3 grid-item borde d-flex align-items-center justify-content-center" draggable="true">⚾</div>
             </div>
         </div>
         <button id="save-btn" class="btn btn-primary float-end">Save Image</button>
@@ -207,83 +219,94 @@
             //let draggedItem = null;
         let touchStartX = 0;
         let touchStartY = 0;
+        let previousHoverItem = null;
 
-        gridItems.forEach(item => {
-            // Desktop drag events
-            item.addEventListener('dragstart', (e) => {
-                draggedItem = e.target;
-                setTimeout(() => {
-                    e.target.classList.add('dragging');
-                }, 0);
-            });
+gridItems.forEach(item => {
+    // Desktop drag events
+    item.addEventListener('dragstart', (e) => {
+        draggedItem = e.target;
+        setTimeout(() => {
+            e.target.classList.add('dragging');
+        }, 0);
+    });
 
-            item.addEventListener('dragend', (e) => {
-                e.target.classList.remove('dragging');
-                draggedItem = null;
-            });
+    item.addEventListener('dragend', (e) => {
+        e.target.classList.remove('dragging');
+        draggedItem = null;
+    });
 
-            item.addEventListener('dragover', (e) => {
-                e.preventDefault();
-            });
+    item.addEventListener('dragover', (e) => {
+        e.preventDefault();
+    });
 
-            item.addEventListener('dragenter', (e) => {
-                e.preventDefault();
-                if (e.target !== draggedItem) {
-                    e.target.classList.add('drag-hover');
-                }
-            });
+    item.addEventListener('dragenter', (e) => {
+        e.preventDefault();
+        if (e.target !== draggedItem) {
+            e.target.classList.add('drag-hover');
+        }
+    });
 
-            item.addEventListener('dragleave', (e) => {
-                e.target.classList.remove('drag-hover');
-            });
+    item.addEventListener('dragleave', (e) => {
+        e.target.classList.remove('drag-hover');
+    });
 
-            item.addEventListener('drop', (e) => {
-                e.preventDefault();
-                if (e.target !== draggedItem) {
-                    e.target.classList.remove('drag-hover');
-                    const targetItem = e.target;
-                    const tempText = draggedItem.textContent;
-                    draggedItem.textContent = targetItem.textContent;
-                    targetItem.textContent = tempText;
-                }
-            });
+    item.addEventListener('drop', (e) => {
+        e.preventDefault();
+        if (e.target !== draggedItem) {
+            e.target.classList.remove('drag-hover');
+            const targetItem = e.target;
+            const tempText = draggedItem.textContent;
+            draggedItem.textContent = targetItem.textContent;
+            targetItem.textContent = tempText;
+        }
+    });
 
-            // Mobile touch events
-            item.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                draggedItem = e.target;
-                touchStartX = e.touches[0].clientX;
-                touchStartY = e.touches[0].clientY;
-                draggedItem.classList.add('dragging');
-            });
+    // Mobile touch events
+    item.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        draggedItem = e.target;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        draggedItem.classList.add('dragging');
+    });
 
-            item.addEventListener('touchmove', (e) => {
-                e.preventDefault();
-                const touch = e.touches[0];
-                const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
+    item.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+        const touch = e.touches[0];
+        const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
 
-                if (elementBelow && elementBelow.classList.contains('grid-item') && elementBelow !== draggedItem) {
-                    elementBelow.classList.add('drag-hover');
-                }
-            });
+        if (elementBelow && elementBelow.classList.contains('grid-item') && elementBelow !== draggedItem) {
+            if (previousHoverItem && previousHoverItem !== elementBelow) {
+                previousHoverItem.classList.remove('drag-hover');
+            }
 
-            item.addEventListener('touchend', (e) => {
-                e.preventDefault();
-                const touchEndX = e.changedTouches[0].clientX;
-                const touchEndY = e.changedTouches[0].clientY;
+            elementBelow.classList.add('drag-hover');
+            previousHoverItem = elementBelow;
+        }
+    });
 
-                const elementBelow = document.elementFromPoint(touchEndX, touchEndY);
-                if (elementBelow && elementBelow.classList.contains('grid-item') && elementBelow !== draggedItem) {
-                    elementBelow.classList.remove('drag-hover');
-                    const tempText = draggedItem.textContent;
-                    draggedItem.textContent = elementBelow.textContent;
-                    elementBelow.textContent = tempText;
-                }
+    item.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
 
-                draggedItem.classList.remove('dragging');
-                draggedItem = null;
-            });
-        });
+        const elementBelow = document.elementFromPoint(touchEndX, touchEndY);
+        if (elementBelow && elementBelow.classList.contains('grid-item') && elementBelow !== draggedItem) {
+            elementBelow.classList.remove('drag-hover');
+            const tempText = draggedItem.textContent;
+            draggedItem.textContent = elementBelow.textContent;
+            elementBelow.textContent = tempText;
+        }
+
+        if (previousHoverItem) {
+            previousHoverItem.classList.remove('drag-hover');
+        }
+
+        draggedItem.classList.remove('dragging');
+        draggedItem = null;
+        previousHoverItem = null;
+    });
+});
  
 
 
