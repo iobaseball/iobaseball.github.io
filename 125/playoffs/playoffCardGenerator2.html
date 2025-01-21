@@ -156,7 +156,7 @@
                 game..."</small
             >
             <div id="checkboxes" class="checkbox-container fs-4"></div>
-            <div class="py-5 text-center small"><small>v 0.250121.2.38</small></div>
+            <div class="py-5 text-center small"><small>v0.250121.2.41</small></div>
         </div>
 
         <!-- Bootstrap JS and Popper.js -->
@@ -456,30 +456,33 @@ script.onload = () => {
     saveButton.addEventListener("click", () => {
         html2canvas(gridContainer, {
             scale: window.devicePixelRatio, // High resolution
-            useCORS: true, // Fix cross-origin issues
+            useCORS: true, // Handle cross-origin resources
+            allowTaint: false, // Prevent tainted canvases
         })
             .then((canvas) => {
-                // Generate the image
                 const imageURL = canvas.toDataURL("image/png");
                 const now = new Date();
                 const dateString = `${now.getFullYear()}-${String(
                     now.getMonth() + 1
                 ).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
 
-                // Mobile-friendly download handling
-                const link = document.createElement("a");
-                link.href = imageURL;
-                link.download = `bingo-grid-${dateString}.png`;
-
-                // iOS workaround: Open in a new tab
-                if (navigator.userAgent.includes("iPhone") || navigator.userAgent.includes("iPad")) {
-                    const newWindow = window.open(imageURL, "_blank");
-                    if (!newWindow) {
+                if (navigator.userAgent.match(/(iPhone|iPad|iPod)/i)) {
+                    // iOS workaround: Open the image in a new tab
+                    const newWindow = window.open("", "_blank");
+                    if (newWindow) {
+                        newWindow.document.write(
+                            `<img src="${imageURL}" alt="Bingo Grid" style="width:100%;height:auto;">`
+                        );
+                    } else {
                         alert(
                             "Unable to open the image. Please allow popups in your browser settings."
                         );
                     }
                 } else {
+                    // Desktop or Android: Trigger download
+                    const link = document.createElement("a");
+                    link.href = imageURL;
+                    link.download = `bingo-grid-${dateString}.png`;
                     link.click();
                 }
             })
@@ -489,6 +492,7 @@ script.onload = () => {
             });
     });
 };
+
 
             });
         </script>
