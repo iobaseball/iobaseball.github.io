@@ -156,7 +156,7 @@
                 game..."</small
             >
             <div id="checkboxes" class="checkbox-container fs-4"></div>
-            <div class="py-5 text-center small"><small>v0.250121.3.03</small></div>
+            <div class="py-5 text-center small"><small>v0.250121.3.07</small></div>
         </div>
 
         <!-- Bootstrap JS and Popper.js -->
@@ -305,9 +305,6 @@
         let touchStartY = 0;
         let previousHoverItem = null;
 
-        function trimTextContent(text) {
-            return text.replace(/\s+/g, '').trim();
-        }
 
         gridItems.forEach(item => {
             // Desktop drag events
@@ -343,8 +340,8 @@
                 if (e.target !== draggedItem) {
                     e.target.classList.remove('drag-hover');
                     const targetItem = e.target;
-                    const tempText = trimTextContent(draggedItem.textContent);
-                    draggedItem.textContent = trimTextContent(targetItem.textContent);
+                    const tempText = draggedItem.textContent;
+                    draggedItem.textContent = targetItem.textContent;
                     targetItem.textContent = tempText;
                 }
             });
@@ -381,8 +378,8 @@
                 const elementBelow = document.elementFromPoint(touchEndX, touchEndY);
                 if (elementBelow && elementBelow.classList.contains('grid-item') && elementBelow !== draggedItem) {
                     elementBelow.classList.remove('drag-hover');
-                    const tempText = trimTextContent(draggedItem.textContent);
-                    draggedItem.textContent = trimTextContent(elementBelow.textContent);
+                    const tempText = draggedItem.textContent;
+                    draggedItem.textContent = elementBelow.textContent;
                     elementBelow.textContent = tempText;
                 }
 
