@@ -448,53 +448,48 @@
                 });
 
                 // Load html2canvas script dynamically
-                const script = document.createElement("script");
-                script.src =
-                    "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js";
-                document.head.appendChild(script);
+const script = document.createElement("script");
+script.src = "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js";
+document.head.appendChild(script);
 
-                script.onload = () => {
-                    saveButton.addEventListener("click", () => {
-                        html2canvas(gridContainer, {
-                            scale: window.devicePixelRatio, // Improves resolution on mobile
-                            useCORS: true, // Handles cross-origin content
-                            logging: true, // Enables logs for debugging
-                        })
-                            .then((canvas) => {
-                                // Get current date for filename
-                                const now = new Date();
-                                const dateString = `${now.getFullYear()}-${String(
-                                    now.getMonth() + 1
-                                ).padStart(2, "0")}-${String(
-                                    now.getDate()
-                                ).padStart(2, "0")}`;
+script.onload = () => {
+    saveButton.addEventListener("click", () => {
+        html2canvas(gridContainer, {
+            scale: window.devicePixelRatio, // High resolution
+            useCORS: true, // Fix cross-origin issues
+        })
+            .then((canvas) => {
+                // Generate the image
+                const imageURL = canvas.toDataURL("image/png");
+                const now = new Date();
+                const dateString = `${now.getFullYear()}-${String(
+                    now.getMonth() + 1
+                ).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
 
-                                // Convert canvas to a downloadable image
-                                const link = document.createElement("a");
-                                link.download = `bingo-grid-${dateString}.png`; // Filename with date
+                // Mobile-friendly download handling
+                const link = document.createElement("a");
+                link.href = imageURL;
+                link.download = `bingo-grid-${dateString}.png`;
 
-                                if (navigator.userAgent.includes("Mobile")) {
-                                    // Open the image in a new tab for mobile
-                                    const imageURL =
-                                        canvas.toDataURL("image/png");
-                                    window.open(imageURL, "_blank");
-                                } else {
-                                    // For desktop, trigger the download
-                                    link.href = canvas.toDataURL("image/png");
-                                    link.click();
-                                }
-                            })
-                            .catch((error) => {
-                                console.error(
-                                    "Error generating canvas:",
-                                    error
-                                );
-                                alert(
-                                    "Failed to save the image. Please try again."
-                                );
-                            });
-                    });
-                };
+                // iOS workaround: Open in a new tab
+                if (navigator.userAgent.includes("iPhone") || navigator.userAgent.includes("iPad")) {
+                    const newWindow = window.open(imageURL, "_blank");
+                    if (!newWindow) {
+                        alert(
+                            "Unable to open the image. Please allow popups in your browser settings."
+                        );
+                    }
+                } else {
+                    link.click();
+                }
+            })
+            .catch((error) => {
+                console.error("Error generating canvas:", error);
+                alert("Failed to save the image. Please try again.");
+            });
+    });
+};
+
             });
         </script>
     </body>
