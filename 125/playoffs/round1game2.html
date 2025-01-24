@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="pageport" content="width=device-width, initial-scale=1" />
+        <title>ioBaseball Playoffs</title>
+        <link rel="icon" href="/images/favicon.ico?" type="image/x-icon" />
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="../styles.css" />
+    </head>
+
+    <body>
+        <div id="root" class="container pt-5">
+            <h3 class="py-3 d-flex flex-wrap row">
+                <span class="col-6 row small col-xl-2">
+                    <span
+                        class="col-6 headlineGameNumber small fw-light"
+                    ></span>
+                    <span
+                        class="col-6 headlineInning small fw-light d-flex flex-wrap"
+                    ></span>
+                </span>
+
+                <span
+                    class="col-12 col-xl-5 row headlineAwayInfo display-6 d-flex flex-wrap"
+                >
+                    <span
+                        class="col-10 headlineAwayName d-flex flex-wrap"
+                    ></span>
+                    <span
+                        class="col-2 headlineAwayScore font-monospac d-flex flex-wrap"
+                    ></span>
+                </span>
+                <span
+                    class="col-12 col-xl-5 row headlineHomeInfo display-6 d-flex flex-wrap"
+                >
+                    <span
+                        class="col-10 headlineHomeName d-flex flex-wrap"
+                    ></span>
+                    <span
+                        class="col-2 headlineHomeScore font-monospac d-flex flex-wrap"
+                    ></span>
+                </span>
+            </h3>
+            <div class="row">
+                <div class="dateAndTime"></div>
+                <div class="pageSummary col pb-4">
+                    Today's games are currently being played
+                </div>
+                <div class="col">
+                    <button
+                        type="button"
+                        class="afternoonContinueButton bouncy btn btn-warning hide"
+                    >
+                        CONTINUE
+                    </button>
+                </div>
+            </div>
+            <div class="boxScore">
+                <table
+                    class="table table-dark table-striped table-bordered text-center pb-4 shadow overflow-hidden my-4"
+                >
+                    <thead>
+                        <tr>
+                            <th class="text-secondary">Team</th>
+                            <th class="text-secondary">R</th>
+                            <th class="text-secondary">H</th>
+                            <th class="text-secondary">E</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-start">Away</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Home</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div
+                id="messageFeedContainer"
+                class="messageFeedContainer bg-333 shadow rounded-2"
+            >
+                <div
+                    id="messageJumpButton"
+                    class="messageJumpButton rounded-3 text-center mx-auto bg-warning hide w-50"
+                >
+                    Jump To Newest Update
+                </div>
+            </div>
+        </div>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"
+        ></script>
+        <!-- <script src="../utilities/MersenneTwister.js"></script>
+        <script src="../model/baseball/baseballStates/AbstractBaseballGameState.js"></script>
+        <script src="../model/baseball/baseballStates/AwayPlayerAtBat.js"></script>
+        <script src="../model/baseball/baseballStates/AwayPlayerStepsUpToBat.js"></script>
+        <script src="../model/baseball/baseballStates/BottomOfTheInning.js"></script>
+        <script src="../model/baseball/baseballStates/EndOfGame.js"></script>
+        <script src="../model/baseball/baseballStates/FinalMessage.js"></script>
+        <script src="../model/baseball/baseballStates/HomePlayerAtBat.js"></script>
+        <script src="../model/baseball/baseballStates/HomePlayerStepsUpToBat.js"></script>
+        <script src="../model/baseball/baseballStates/InningIsNowAnOuting.js"></script>
+        <script src="../model/baseball/baseballStates/PlayBall.js"></script>
+        <script src="../model/baseball/baseballStates/TopOfTheInning.js"></script>
+        <script src="../model/baseball/baseballWeather/AbstractWeather.js"></script>
+        <script src="../model/baseball/baseballWeather/CoolWeather.js"></script>
+        <script src="../model/baseball/baseballWeather/HeatwaveWeather.js"></script>
+        <script src="../model/baseball/baseballWeather/RainDelayWeather.js"></script>
+        <script src="../model/baseball/baseballWeather/UnrainDelayWeather.js"></script>
+        <script src="../utilities/Name.js"></script>
+        <script src="../utilities/HelpMe.js"></script>
+        <script src="../model/baseball/stats/EventManager.js"></script>
+        <script src="../model/baseball/stats/GameEvent.js"></script>
+        <script src="../model/baseball/stats/Stats.js"></script>
+        <script src="../model/baseball/Crest.js"></script>
+        <script src="../model/baseball/PlayerAttributes.js"></script>
+        <script src="../model/baseball/BaseballPlayer.js"></script>
+        <script src="../model/baseball/BaseballTeam.js"></script>
+        <script src="../model/baseball/League.js"></script>
+        <script src="../model/baseball/Season.js"></script>
+        <script src="../model/baseball/BaseballGameBoxScore.js"></script>
+        <script src="../model/baseball/BaseballGameMessage.js"></script>
+        <script src="../model/baseball/BaseballGame.js"></script>
+        <script src="../view/GamePostComponent.js"></script>
+        <script src="../view/StatsModal.js"></script>
+        <script src="../view/View.js"></script>
+        <script src="round1game2script.js"></script> -->
+
+        <!-- <script src="model/baseball/Schedule.js"></script>
+        <script src="model/baseball/RegularSeasonSchedule.js"></script>
+        <script src="model/baseball/Season.js"></script>
+        <script src="model/baseball/League.js"></script> -->
+
+        <script src="round1game2script.min.js"></script>
+    </body>
+</html>
