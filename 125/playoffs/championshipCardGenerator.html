@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="language" content="en" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="google" content="notranslate" />
+        <meta http-equiv="Content-Language" content="en" />
+        <title>ioLB Playoff Card Generator</title>
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            .grid-item {
+                background-color: #ffffff;
+                color: #000;
+
+                min-height: 120px;
+                border: 2px solid #000000;
+                font-weight: normal;
+                border-radius: 5px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: grab;
+                user-select: none;
+            }
+            .grid-item.dragging {
+                background-color: #ffbebe; /* Light blue */
+                border: 2px dashed #ff0000; /* Blue dashed border */
+                opacity: 0.8;
+            }
+
+            .grid-item.drag-hover {
+                background-color: #c3ffc7; /* Gold */
+                border: 2px dashed #007c25; /* Blue dashed border */
+            }
+
+            .dragging {
+                background-color: #b8b7ff; /* Light blue */
+                border: 2px dashed #120084; /* Blue dashed border */
+                opacity: 0.8;
+            }
+            .responsive-font {
+                font-size: 0.75rem; /* Default for small screens */
+            }
+
+            @media (min-width: 768px) {
+                .responsive-font {
+                    font-size: 0.9rem; /* Medium screens */
+                }
+            }
+
+            @media (min-width: 992px) {
+                .responsive-font {
+                    font-size: 1.2rem; /* Large screens */
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container p-3">
+            <div class="text-center small text-secondary"><small>v0.250126</small></div>
+            <div id="grid-container" class="container">
+                <h1 class="text-center text-danger">⚾ioLB CHAMPIONSHIP Playoff Card⚾</h1>
+                <div style="color: #fff" class="text-center">
+                    <small
+                        >What will happen in the CHAMPIONSHIP GAME?????
+                        (Drag & drop to rearrange the grid)</small
+                    >
+                </div>
+                <div class="row w-auto px-4">
+                    <div
+                        class="col-3 responsive-font grid-item d-flex align-items-center justify-content-center"
+                        draggable="true"
+                    >⚾</div>
+                    <div
+                        class="col-3 responsive-font grid-item d-flex align-items-center justify-content-center"
+                        draggable="true"
+                    >⚾</div>
+                    <div
+                        class="col-3 responsive-font grid-item d-flex align-items-center justify-content-center"
+                        draggable="true"
+                    >⚾</div>
+                    <div
+                        class="col-3 responsive-font grid-item d-flex align-items-center justify-content-center"
+                        draggable="true"
+                    >⚾</div>
+                </div>
+
+                <div class="row w-auto px-4">
+                    <div
+                        class="col-3 responsive-font grid-item d-flex align-items-center justify-content-center"
+                        draggable="true"
+                    >⚾</div>
+                    <div
+                        class="col-3 responsive-font grid-item d-flex align-items-center justify-content-center"
+                        draggable="true"
+                    >⚾</div>
+                    <div
+                        class="col-3 responsive-font grid-item d-flex align-items-center justify-content-center"
+                        draggable="true"
+                    >⚾</div>
+                    <div
+                        class="col-3 responsive-font grid-item d-flex align-items-center justify-content-center"
+                        draggable="true"
+                    >⚾</div>
+                </div>
+
+                <div class="row w-auto px-4">
+                    <div
+                        class="col-3 responsive-font grid-item d-flex align-items-center justify-content-center"
+                        draggable="true"
+                    >⚾</div>
+                    <div
+                        class="col-3 responsive-font grid-item d-flex align-items-center justify-content-center"
+                        draggable="true"
+                    >⚾</div>
+                    <div
+                        class="col-3 responsive-font grid-item d-flex align-items-center justify-content-center"
+                        draggable="true"
+                    >⚾</div>
+                    <div
+                        class="col-3 responsive-font grid-item d-flex align-items-center justify-content-center"
+                        draggable="true"
+                    >⚾</div>
+                </div>
+
+                <div class="row w-auto pb-4 px-4">
+                    <div
+                        class="col-3 responsive-font grid-item d-flex align-items-center justify-content-center"
+                        draggable="true"
+                    >⚾</div>
+                    <div
+                        class="col-3 responsive-font grid-item d-flex align-items-center justify-content-center"
+                        draggable="true"
+                    >⚾</div>
+                    <div
+                        class="col-3 responsive-font grid-item d-flex align-items-center justify-content-center"
+                        draggable="true"
+                    >⚾</div>
+                    <div
+                        class="col-3 responsive-font grid-item d-flex align-items-center justify-content-center"
+                        draggable="true"
+                    >⚾</div>
+                </div>
+            </div>
+            <button id="save-btn" class="btn btn-primary float-end">
+                Save Image
+            </button>
+            <h6 id="verbYourNoun" class="text-danger"></h6>
+            <small class=""
+                >Earn points for correct predictions & also every
+                full row/column/diagonal. Assume all predictions are "At the end of the
+                game..." Sum of runs in game = winning team's runs + losing 
+                team's runs. Difference in runs = winning team's runs - losing team's runs.</small
+            >
+            <hr>
+            <div id="checkboxes" class="checkbox-container fs-4"></div>
+            <div class="py-5 text-center small"><small>ioBaseball</small></div>
+        </div>
+
+        <!-- Bootstrap JS and Popper.js -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+            const magicalVerbs = [
+  "Align",
+  "Answer",
+  "Assert",
+  "Cast",
+  "Channel",
+  "Chant",
+  "Choose",
+  "Command",
+  "Conduct",
+  "Confess",
+  "Confirm",
+  "Connect",
+  "Control",
+  "Declare",
+  "Deliver",
+  "Divine",
+  "Empower",
+  "Enchant",
+  "Harness",
+  "Harness",
+  "Invoke",
+  "Mark",
+  "Make known",
+  "Pierce",
+  "Proclaim",
+  "Pronounce",
+  "Recite",
+  "Scream",
+  "Seal",
+  "Select",
+  "Shape",
+  "Shout",
+  "Speak",
+  "Steer",
+  "Summon",
+  "Trust",
+  "Use",
+  "Utter",
+  "Weave",
+];
+            const magicalNouns = [
+  "ancient knowledge",
+  "augury",
+  "cosmic balance",
+  "destiny",
+  "divination",
+  "divine insight",
+  "divine will",
+  "dream",
+  "expectation",
+  "fate",
+  "foreknowledge",
+  "foresight",
+  "foretelling",
+  "fortune",
+  "hereafter",
+  "hidden truth",
+  "insight",
+  "intuition",
+  "karma",
+  "muse",
+  "mystic path",
+  "omen",
+  "outcome",
+  "outlook",
+  "prediction",
+  "prophecy",
+  "revelation",
+  "sacred wisdom",
+  "sixth sense",
+  "spiritual awakening",
+  "vision",
+];
+function getRandomItem(array) {
+  return array.splice(Math.floor(Math.random() * array.length),1)[0];
+}
+const verbYourNoun = document.getElementById("verbYourNoun");
+for(let i=0;i < 3;i++){
+    verbYourNoun.innerHTML += `${getRandomItem(magicalVerbs)} your ${getRandomItem(magicalNouns)}! `;
+}
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const saveButton = document.getElementById("save-btn");
+                const checkboxContainer = document.getElementById("checkboxes");
+                const gridItems = document.querySelectorAll(".grid-item");
+                const gridContainer = document.getElementById("grid-container");
+                //console.log(gridContainer)
+                const checkboxList = [
+                    "VA defeats HFD",
+                    
+                    "HFD defeats VA",
+           
+
+
+                    "A team's final score 14+ runs",
+                    "A team's final score 10 to 13 runs",
+                    "A team's final score 7 to 9 runs",
+                    "A team's final score 5 or 6 runs",
+                    "A team's final score 3 or 4 runs",
+                    "A team's final score 2 or 3 runs",
+                    "A team's final score 0 or 1 runs",
+
+
+                    "17+ hits from a team",
+                    "13 to 16 hits from a team",
+                    "10 to 12 hits from a team",
+                    "8 or 9 hits from a team",
+                    "7 or 8 hits from a team",
+                    "4 to 6 hits from a team",
+                    "0 to 3 hits from a team",
+
+                    "A pitcher throws 18+ SOs",
+                    "A pitcher throws 14 to 17 SOs",
+                    "A pitcher throws 10 to 13 SOs",
+                    "A pitcher throws 8 or 9 SOs",
+                    "A pitcher throws 6 or 7 SOs",
+                    "A pitcher throws 4 or 5 SOs",
+                    "A pitcher throws 0 to 3 SOs",
+
+                    "Sum of runs in game = 21+",
+                    "Sum of runs in game = 17 to 20",
+                    "Sum of runs in game = 13 to 16",
+                    "Sum of runs in game = 9 to 12",
+                    "Sum of runs in game = 5 to 8",
+                    "Sum of runs in game = 1 to 4",
+
+                    "Difference in runs = 9+",
+                    "Difference in runs = 7 or 8",
+                    "Difference in runs = 5 or 6",
+                    "Difference in runs = 3 or 4",
+                    "Difference in runs = 1 or 2",
+
+                    "🍿FREE SPACE +1 pt🍿",
+                ];
+
+                function addToGrid(itemText) {
+                    const gridItems = document.querySelectorAll(".grid-item");
+                    const emptyCells = Array.from(gridItems).filter(
+                        (item) =>
+                            !item.textContent.trim() ||
+                            item.textContent == "⚾"
+                    );
+
+                    if (emptyCells.length > 0) {
+                        const randomCell =
+                            emptyCells[
+                                Math.floor(Math.random() * emptyCells.length)
+                            ];
+                        randomCell.textContent = itemText;
+                    } else {
+                        // If no empty cells, trigger the checkbox to be unchecked and show an alert
+                        const checkbox = document.querySelector(
+                            `input[value="${itemText}"]`
+                        );
+                        if (checkbox) {
+                            // checkbox.style.backgroundColor = "red";
+                            // setTimeout(()=>{checkbox.style.backgroundColor = "transparent"},2000)
+                            checkbox.checked = false;
+                            showAlert(
+                                "No more empty cells! Uncheck another box first",
+                                "danger"
+                            ); // Show alert
+                        }
+                    }
+                }
+                // Create and append checkboxes to the container
+                checkboxList.forEach((item, index) => {
+                    const div = document.createElement("div");
+                    div.classList.add(
+                        "form-check",
+                        "form-check-inline",
+                        "mb-2"
+                    );
+
+                    const input = document.createElement("input");
+                    input.type = "checkbox";
+                    input.classList.add("form-check-input");
+                    input.id = `checkbox${index + 5}`;
+                    input.value = item;
+
+                    const label = document.createElement("label");
+                    label.classList.add("form-check-label");
+                    label.setAttribute("for", input.id);
+                    label.textContent = item;
+
+                    div.appendChild(input);
+                    div.appendChild(label);
+
+                    checkboxContainer.appendChild(div);
+
+                    // Add event listener to each checkbox
+                    input.addEventListener("change", () => {
+                        if (input.checked) {
+                            addToGrid(input.value);
+                        } else {
+                            removeFromGrid(input.value);
+                        }
+                    });
+                });
+
+                // Function to remove the unchecked item from grid and replace it with "empty"
+                function removeFromGrid(checkboxValue) {
+                    gridItems.forEach((item) => {
+                        if (item.textContent == checkboxValue) {
+                            item.textContent = "⚾"; // Replace the content of the unchecked cell with "empty"
+                        }
+                    });
+                }
+
+                function showAlert(message, type = "info") {
+                    const container = document.querySelector(".container");
+                    const alert = document.createElement("div");
+                    alert.classList.add("alert", `alert-${type}`, "mt-3","sticky-top");
+                    alert.textContent = message;
+
+                    container.insertBefore(alert, container.firstChild);
+
+                    // Automatically dismiss after 3 seconds
+                    setTimeout(() => {
+                        alert.remove();
+                    }, 3000);
+                }
+        // const gridItems = document.querySelectorAll('.grid-item');
+        // const saveButton = document.getElementById('save-btn');
+        //const gridContainer = document.getElementById('grid-container');
+
+        let draggedItem = null;
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let previousHoverItem = null;
+
+
+        gridItems.forEach(item => {
+            // Desktop drag events
+            item.addEventListener('dragstart', (e) => {
+                draggedItem = e.target;
+                setTimeout(() => {
+                    e.target.classList.add('dragging');
+                }, 0);
+            });
+
+            item.addEventListener('dragend', (e) => {
+                e.target.classList.remove('dragging');
+                draggedItem = null;
+            });
+
+            item.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            item.addEventListener('dragenter', (e) => {
+                e.preventDefault();
+                if (e.target !== draggedItem) {
+                    e.target.classList.add('drag-hover');
+                }
+            });
+
+            item.addEventListener('dragleave', (e) => {
+                e.target.classList.remove('drag-hover');
+            });
+
+            item.addEventListener('drop', (e) => {
+                e.preventDefault();
+                if (e.target !== draggedItem) {
+                    e.target.classList.remove('drag-hover');
+                    const targetItem = e.target;
+                    const tempText = draggedItem.textContent;
+                    draggedItem.textContent = targetItem.textContent;
+                    targetItem.textContent = tempText;
+                }
+            });
+
+            // Mobile touch events
+            item.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                draggedItem = e.target;
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+                draggedItem.classList.add('dragging');
+            });
+
+            item.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                const touch = e.touches[0];
+                const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
+
+                if (elementBelow && elementBelow.classList.contains('grid-item') && elementBelow !== draggedItem) {
+                    if (previousHoverItem && previousHoverItem !== elementBelow) {
+                        previousHoverItem.classList.remove('drag-hover');
+                    }
+
+                    elementBelow.classList.add('drag-hover');
+                    previousHoverItem = elementBelow;
+                }
+            });
+
+            item.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                const touchEndX = e.changedTouches[0].clientX;
+                const touchEndY = e.changedTouches[0].clientY;
+
+                const elementBelow = document.elementFromPoint(touchEndX, touchEndY);
+                if (elementBelow && elementBelow.classList.contains('grid-item') && elementBelow !== draggedItem) {
+                    elementBelow.classList.remove('drag-hover');
+                    const tempText = draggedItem.textContent;
+                    draggedItem.textContent = elementBelow.textContent;
+                    elementBelow.textContent = tempText;
+                }
+
+                if (previousHoverItem) {
+                    previousHoverItem.classList.remove('drag-hover');
+                }
+
+                draggedItem.classList.remove('dragging');
+                draggedItem = null;
+                previousHoverItem = null;
+            });
+        });
+
+        // Save Image functionality
+        const loadHtml2CanvasAndSave = () => {
+            console.log('gridContainer:', gridContainer);
+if (!gridContainer) {
+    console.error('gridContainer element not found.');
+}
+
+            html2canvas(gridContainer, {
+                scale: window.devicePixelRatio,
+                useCORS: true,
+                allowTaint: false,
+            })
+                .then((canvas) => {
+                    const imageURL = canvas.toDataURL('image/png');
+                    const now = new Date();
+                    const dateString = `${now.getFullYear()}-${String(
+                        now.getMonth() + 1
+                    ).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+
+                    if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+                        const newWindow = window.open('', '_blank');
+                        if (newWindow) {
+                            newWindow.document.write(
+                                `<img src="${imageURL}" alt="Grid" style="width:100%;height:auto;">`
+                            );
+                        } else {
+                            alert(
+                                'Unable to open the image. Please allow popups in your browser settings.'
+                            );
+                        }
+                    } else {
+                        const link = document.createElement('a');
+                        link.href = imageURL;
+                        link.download = `bingo-grid-${dateString}.png`;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error generating canvas:', error);
+                    alert('Failed to save the image. Please try again.');
+                });
+        };
+
+        saveButton.addEventListener('click', () => {
+            if (typeof html2canvas === 'undefined') {
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+                document.head.appendChild(script);
+                script.onload = loadHtml2CanvasAndSave;
+            } else {
+                loadHtml2CanvasAndSave();
+            }
+        });
+    });
+</script>
+
+    </body>
+</html>
