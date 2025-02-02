@@ -1,11 +1,61 @@
-<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
-	<title>cool</title>
-	<style>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.2"
+   viewBox="0 0 400 400"
+   width="400"
+   height="400"
+   id="svg4"
+   sodipodi:docname="coolWeather.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.195"
+     inkscape:cx="199.77221"
+     inkscape:cy="200"
+     inkscape:window-width="1200"
+     inkscape:window-height="1027"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4" />
+  <title
+     id="title1">cool</title>
+  <style
+     id="style1">
 		.s0 { fill: #7189ff;stroke: #ffffff;stroke-miterlimit:10;stroke-width: 2;stroke-dasharray: NaN } 
 		.s1 { fill: none;stroke: #ffffff;stroke-linecap: round;stroke-miterlimit:10;stroke-width: 27.5;stroke-dasharray: NaN } 
 	</style>
-	<path class="s0" d="m0 400v-400h400v400z"/>
-	<path fill-rule="evenodd" class="s1" d="m199.5 107v189"/>
-	<path fill-rule="evenodd" class="s1" d="m121 148.8l157 105.4"/>
-	<path fill-rule="evenodd" class="s1" d="m278 148.8l-157 105.4"/>
+  <path
+     class="s0"
+     d="m0 400v-400h400v400z"
+     id="path1"
+     style="fill:#7a91ff;fill-opacity:1" />
+  <path
+     fill-rule="evenodd"
+     class="s1"
+     d="m199.5 107v189"
+     id="path2" />
+  <path
+     fill-rule="evenodd"
+     class="s1"
+     d="m121 148.8l157 105.4"
+     id="path3" />
+  <path
+     fill-rule="evenodd"
+     class="s1"
+     d="m278 148.8l-157 105.4"
+     id="path4" />
 </svg>

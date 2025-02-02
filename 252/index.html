@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="pageport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ioBaseball</title>
+    <link rel="icon" href="../images/favicon.ico?" type="image/x-icon">
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,900&family=Germania+One&family=Graduate&family=Josefin+Sans:wght@700&family=Kelly+Slab&family=Noto+Color+Emoji&family=Roboto+Condensed&family=Rye&display=swap" rel="stylesheet">
+     -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
+     
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css" />
+
+
+</head>
+
+<body>
+    <div id="root" class="container-fluid pt-4">
+        <div class="noto display-1 text-center">🔜</div>
+    </div>
+    <div id="loader"></div> 
+
+
+    
+
+
+    <footer class="footer p-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <h2>ioBaseball</h2>
+                </div>
+                <div class="col-lg-3">
+                    <h5>About</h5>
+                    <p>
+                        A deck-building baseball roguelike
+                    </p>
+                    <p><a href="#" class="link" data-bs-toggle="modal" data-bs-target="#faqModal">FAQ</a></p>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Support Us</h5>
+                    <ul class="list-inline footer-links">
+                        <li class="list-inline-item">
+                            <a class="link footer-links" href="https://ko-fi.com/iobaseball"><img class="footer-icon-24" src="../images/socialIcons/kofi80x80.png">Ko-fi</a>
+                        </li>
+                        <li class="list-inline-item"><img class="footer-icon-24" src="../images/ball24x24.png">Score a Season Ticket</li>
+                        <li class="list-inline-item"><img class="footer-icon-24" src="../images/ball24x24.png">Name a Baseball Player</li>
+                        <li class="list-inline-item"><img class="footer-icon-24" src="../images/ball24x24.png">Vote on New Features</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Follow Us</h5>
+                    <ul class="list-inline footer-links">
+                        <li class="list-inline-item">
+                            <a class="link footer-links" href="https://discord.gg/qhCSjsEsUe"><img class="footer-icon-24" src="../images/socialIcons/discord80x80.png">Discord</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="link footer-links" href="https://mastodon.social/@iobaseball"><img class="footer-icon-24" src="../images/socialIcons/masto80x80.png">Mastodon</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="link footer-links" href="https://www.youtube.com/@iobaseball"><img class="footer-icon-24" src="../images/socialIcons/ytb80x80.png">YouTube</a>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <a class="link footer-links" href="https://www.twitch.tv/iobaseball"><img class="footer-icon-24" src="../images/socialIcons/twitch80x80.png">Twitch</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p class="small"><small>&copy; Copyleft 2024. All lefts reserved.</small> <small class="text-secondary">v0.250201</small></p>
+                </div>
+                <div class="col-lg-6 text-end">
+                    <ul class="list-inline footer-links">
+                        <li class="list-inline-item">
+                            <!--a href="#" class="link">
+                                Privacy Policy
+                            </a-->
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="../index.html" class="link small">
+                                <small>Homepage</small>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="../info.html#faq" 
+                                class="link small"><small>FAQ</small></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="../info.html#credits"
+                                class="link small"><small>Credits</small></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center" id="footerFinalRow"></div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- <script src="utilities/MersenneTwister.js"></script>
+    <script src="utilities/Name.js"></script>
+    <script src="utilities/HelpMe.js"></script>
+    <script src="utilities/Colors.js"></script>
+    <script src="model/baseball/baseballStates/AbstractBaseballGameState.js"></script>
+    <script src="model/baseball/baseballStates/AwayPlayerAtBat.js"></script>
+    <script src="model/baseball/baseballStates/AwayPlayerStepsUpToBat.js"></script>
+    <script src="model/baseball/baseballStates/BottomOfTheInning.js"></script>
+    <script src="model/baseball/baseballStates/EndOfGame.js"></script>
+    <script src="model/baseball/baseballStates/FinalMessage.js"></script>
+    <script src="model/baseball/baseballStates/HomePlayerAtBat.js"></script>
+    <script src="model/baseball/baseballStates/HomePlayerStepsUpToBat.js"></script>
+    <script src="model/baseball/baseballStates/InningIsNowAnOuting.js"></script>
+    <script src="model/baseball/baseballStates/PlayBall.js"></script>
+    <script src="model/baseball/baseballStates/TopOfTheInning.js"></script>
+    <script src="model/baseball/baseballWeather/AbstractWeather.js"></script>
+    <script src="model/baseball/baseballWeather/CoolWeather.js"></script>
+    <script src="model/baseball/baseballWeather/HeatwaveWeather.js"></script>
+    <script src="model/baseball/baseballWeather/RainDelayWeather.js"></script>
+    <script src="model/baseball/baseballWeather/UnrainDelayWeather.js"></script>
+    <script src="model/baseball/baseballWeather/AstralRiftWeather.js"></script>
+    <script src="model/baseball/baseballWeather/CircusWeather.js"></script>
+    <script src="model/baseball/playerConditions/PlayerCondition.js"></script>
+    <script src="model/baseball/playerConditions/BlessedCondition.js"></script>
+    <script src="model/baseball/playerConditions/CursedCondition.js"></script>
+    <script src="model/baseball/playerConditions/MaximizedCondition.js"></script>
+    <script src="model/baseball/playerConditions/MinimizedCondition.js"></script>
+    <script src="model/baseball/playerConditions/JugglerCondition.js"></script>
+    <script src="model/baseball/stats/Stats.js"></script>
+    <script src="model/baseball/stats/GameEvent.js"></script>
+    <script src="model/baseball/stats/EventManager.js"></script>
+    <script src="model/baseball/SeasonTicketHolders.js"></script>
+    <script src="model/baseball/PlayerAttributes.js"></script>
+    <script src="model/baseball/BaseballPlayer.js"></script>
+    <script src="model/baseball/Crest.js"></script>
+    <script src="model/baseball/BaseballTeam.js"></script>
+    <script src="model/baseball/BaseballGameBoxScore.js"></script>
+    <script src="model/baseball/BaseballGameMessage.js"></script>
+    <script src="model/baseball/BaseballGame.js"></script>
+    <script src="model/baseball/Schedule.js"></script>
+    <script src="model/baseball/RegularSeasonSchedule.js"></script>
+    <script src="model/baseball/Season.js"></script>
+    <script src="model/baseball/League.js"></script>
+    <script src="model/cards/TradingCard.js"></script>
+    <script src="model/cards/JokerCard.js"></script>
+    <script src="model/cards/PotionCard.js"></script>
+    <script src="model/cards/LuckyJokerCard.js"></script>
+    <script src="model/cards/LuckyShoeCard.js"></script>
+    <script src="model/cards/CursedShoeCard.js"></script>
+    <script src="model/cards/LuckyHatCard.js"></script>
+    <script src="model/cards/CursedHatCard.js"></script>
+    <script src="model/cards/LuckyMoneymakerCard.js"></script>
+    <script src="model/cards/CursedMoneymakerCard.js"></script>
+    <script src="model/cards/LuckyShirtCard.js"></script>
+    <script src="model/cards/CursedShirtCard.js"></script>
+    <script src="model/cards/ConcessionsCard.js"></script>
+    <script src="model/cards/SaltyConcessionsCard.js"></script>
+    <script src="model/cards/SweetConcessionsCard.js"></script>
+    <script src="model/cards/HotConcessionsCard.js"></script>
+    <script src="model/cards/CoffeeConcessionsCard.js"></script>
+    <script src="model/cards/ApocryphaCard.js"></script>
+    <script src="model/cards/CelestialCard.js"></script>
+    <script src="model/cards/PlaceholderCard.js"></script>
+    <script src="model/cards/SluggerCard.js"></script>
+    <script src="model/cards/PitcherCard.js"></script>
+    <script src="model/cards/FavTeamCard.js"></script>
+    <script src="model/plotDevices/PlotDevice.js"></script>
+    <script src="model/plotDevices/WhirlwindA.js"></script>
+    <script src="model/plotDevices/WhirlwindB.js"></script>
+    <script src="model/plotDevices/WhirlwindC.js"></script>
+    <script src="model/plotDevices/WhirlwindD.js"></script>
+    <script src="model/plotDevices/WhirlwindE.js"></script>
+    <script src="model/plotDevices/WhirlwindF.js"></script>
+    <script src="model/plotDevices/RabbitBallA.js"></script>
+    <script src="model/plotDevices/RabbitBallB.js"></script>
+    <script src="model/plotDevices/RabbitBallC.js"></script>
+    <script src="model/plotDevices/RabbitBallD.js"></script>
+    <script src="model/plotDevices/RabbitBallE.js"></script>
+    <script src="model/plotDevices/RabbitBallF.js"></script>
+    <script src="model/themes/AbstractTheme.js"></script>
+    <script src="model/themes/VanillaTheme.js"></script>
+    <script src="model/themes/CursesTheme.js"></script>
+    <script src="model/themes/BlessingsTheme.js"></script>
+    <script src="model/themes/MaximizedTheme.js"></script>
+    <script src="model/themes/MinimizedTheme.js"></script>
+    <script src="model/upgrades/Upgrade.js"></script>
+    <script src="model/upgrades/TheBoar.js"></script>
+    <script src="model/upgrades/TheFountain.js"></script>
+    <script src="model/upgrades/TheDevilfish.js"></script>
+    <script src="model/upgrades/ThePoisonApple.js"></script>
+    <script src="model/upgrades/TheFlightlessFowl.js"></script>
+    <script src="model/upgrades/TheOccultHand.js"></script>
+    <script src="model/upgrades/TheIllusionist.js"></script>
+    <script src="model/User.js"></script>
+    <script src="model/NewsTicker.js"></script>
+    <script src="model/BroadcastNews.js"></script>
+    <script src="model/Valuables.js"></script>
+    <script src="model/Shop.js"></script>
+    <script src="model/World.js"></script>
+    <script src="model/Model.js"></script>
+    <script src="view/View.js"></script>
+    <script src="view/NavBar.js"></script>
+    <script src="view/UpgradeCardComponent.js"></script>
+    <script src="view/TradingCardComponent.js"></script>
+    <script src="view/GamePostComponent.js"></script>
+    <script src="view/SocialPostComponent.js"></script>
+    <script src="view/SingleGamePage.js"></script>
+    <script src="view/LiveGamesPage.js"></script>
+    <script src="view/SchedulePage.js"></script>
+    <script src="view/StandingsPage.js"></script>
+    <script src="view/FaqModal.js"></script>
+    <script src="view/TutorialModal.js"></script>
+    <script src="view/AfternoonHomePage.js"></script>
+    <script src="view/ShopHomePage.js"></script>
+    <script src="view/NightHomePage.js"></script>
+    <script src="view/PerformanceHomePage.js"></script>
+    <script src="view/PromptToLoadHomePage.js"></script>
+    <script src="view/NewGameHomePage.js"></script>
+    <script src="view/UserPage.js"></script>
+    <script src="view/PromptToLoadView.js"></script>
+    <script src="view/NewGameView.js"></script>
+    <script src="view/ShopView.js"></script>
+    <script src="view/AfternoonView.js"></script>
+    <script src="view/NightView.js"></script>
+    <script src="view/PerformanceView.js"></script>
+    <script src="view/StatsModal.js"></script>
+    <script src="view/ConfirmModal.js"></script>
+    <script src="view/GameWidgetComponent.js"></script>
+    <script src="Controller.js"></script>
+    <script src="script.js"></script> -->
+    <script src="script.min.js"></script>
+</body>
+
+</html>
